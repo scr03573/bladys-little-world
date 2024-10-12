@@ -7,22 +7,22 @@
     padding: 0;
 }
 
-/* Variables for Consistent Styling */
+/* Variables for Consistent and Empowering Styling */
 :root {
-    --primary-color: #d35400; /* Warm Orange */
-    --secondary-color: #e67e22; /* Light Orange */
-    --accent-color: #f1c40f; /* Soft Yellow */
-    --background-color: #fffaf0; /* Floral White */
+    --primary-color: #2c3e50; /* Deep Blue for Trust and Stability */
+    --secondary-color: #27ae60; /* Vibrant Green for Growth and Energy */
+    --accent-color: #f39c12; /* Bright Orange for Enthusiasm */
+    --background-color: #ecf0f1; /* Light Gray for Cleanliness */
     --font-primary: 'Roboto', sans-serif;
     --font-secondary: 'Montserrat', sans-serif;
     --max-width: 1200px;
     --transition-speed: 0.3s;
     --font-size-base: 16px;
-    --text-color: #4a4a4a; /* Dark Gray for Readability */
+    --text-color: #34495e; /* Dark Slate Gray for Readability */
     --heading-color: var(--primary-color);
-    --footer-background: #333;
-    --footer-text-color: #fff;
-    --overlay-color: rgba(213, 84, 0, 0.4);
+    --footer-background: #2c3e50;
+    --footer-text-color: #ecf0f1;
+    --overlay-color: rgba(44, 62, 80, 0.6);
 }
 
 /* Body Styling */
@@ -32,7 +32,7 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--background-color);
-    background-image: linear-gradient(135deg, #fffaf0 25%, #fdebd0 25%, #fdebd0 50%, #fffaf0 50%, #fffaf0 75%, #fdebd0 75%, #fdebd0 100%);
+    background-image: linear-gradient(135deg, #ecf0f1 25%, #bdc3c7 25%, #bdc3c7 50%, #ecf0f1 50%, #ecf0f1 75%, #bdc3c7 75%, #bdc3c7 100%);
     background-size: 56.57px 56.57px; /* Adjusted for gradient pattern */
 }
 
@@ -57,7 +57,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(44, 62, 80, 0.9);
     -webkit-backdrop-filter: blur(10px); /* Added for Safari compatibility */
     backdrop-filter: blur(10px);
     transition: background-color var(--transition-speed);
@@ -66,13 +66,13 @@ header {
 header .navbar-nav .nav-link {
     font-family: var(--font-secondary);
     font-weight: 600;
-    color: var(--text-color);
+    color: var(--background-color);
     transition: color var(--transition-speed);
 }
 
 header .navbar-nav .nav-link.active,
 header .navbar-nav .nav-link:hover {
-    color: var(--primary-color);
+    color: var(--accent-color);
 }
 
 /* Hero Section */
@@ -81,6 +81,12 @@ header .navbar-nav .nav-link:hover {
     background-size: cover;
     background-position: center;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    animation: fadeIn 2s ease-out forwards;
 }
 
 .hero .overlay {
@@ -97,14 +103,16 @@ header .navbar-nav .nav-link:hover {
     font-size: 3rem;
     color: #fff;
     margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+    animation: slideInDown 1s ease-out forwards;
 }
 
 .hero p {
     font-size: 1.25rem;
     color: #fff;
     margin-bottom: 2rem;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    animation: slideInUp 1s ease-out forwards;
 }
 
 .btn-primary,
@@ -117,6 +125,7 @@ header .navbar-nav .nav-link:hover {
 .btn-primary:hover,
 .btn-secondary:hover {
     transform: scale(1.05);
+    opacity: 0.9;
 }
 
 /* Sections */
@@ -130,6 +139,17 @@ section h2 {
     color: var(--heading-color);
     margin-bottom: 1.5rem;
     text-align: center;
+    position: relative;
+}
+
+section h2::after {
+    content: '';
+    width: 60px;
+    height: 4px;
+    background-color: var(--accent-color);
+    display: block;
+    margin: 10px auto 0;
+    border-radius: 2px;
 }
 
 section p {
@@ -142,6 +162,7 @@ section p {
 .accordion-button {
     background-color: var(--secondary-color);
     color: #fff;
+    font-weight: 600;
 }
 
 .accordion-button:not(.collapsed) {
@@ -179,18 +200,55 @@ section p {
     margin-bottom: 1rem;
 }
 
-/* Schedule Section */
-#schedule {
-    background-color: #f9f9f9;
-    padding: 2rem 0;
+/* Impact Section */
+.impact-card {
+    border: none;
+    background: transparent;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
 
-#schedule h4 {
+.impact-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.impact-card i {
+    color: var(--accent-color);
+}
+
+.impact-card .card-title {
+    font-size: 1.25rem;
+    margin-top: 1rem;
+    color: var(--primary-color);
+}
+
+.impact-card .card-text {
+    color: var(--text-color);
+}
+
+/* Testimonials Section */
+.testimonial {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.testimonial:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.testimonial p {
+    font-style: italic;
     margin-bottom: 1rem;
+    color: var(--text-color);
 }
 
-#schedule p {
-    font-size: 1rem;
+.testimonial h5 {
+    font-weight: 600;
+    color: var(--primary-color);
 }
 
 /* Contact Information Section */
@@ -212,7 +270,7 @@ section p {
 
 #contact-form .form-control:focus {
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 0.2rem rgba(213, 84, 0, 0.25);
+    box-shadow: 0 0 0 0.2rem rgba(44, 62, 80, 0.25);
 }
 
 #contact-form button {
@@ -232,7 +290,7 @@ section p {
 }
 
 .social-links a:hover {
-    color: var(--primary-color);
+    color: var(--accent-color);
     opacity: 0.8;
 }
 
@@ -304,6 +362,28 @@ footer i:hover {
     }
 }
 
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .hover-animate:hover {
     transform: scale(1.05);
     transition: transform var(--transition-speed);
@@ -340,5 +420,14 @@ footer i:hover {
 
     .contact .col-md-6 {
         margin-bottom: 2rem;
+    }
+
+    /* Impact Section Adjustments */
+    .impact-card .card-body {
+        padding: 1.5rem;
+    }
+
+    .testimonial {
+        padding: 1.5rem;
     }
 }
