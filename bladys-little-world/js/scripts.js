@@ -1,5 +1,3 @@
-// scripts.js
-
 document.addEventListener('DOMContentLoaded', () => {
     // Back to Top Button
     const backToTopButton = document.getElementById('back-to-top');
@@ -8,7 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', () => {
         if (window.scrollY > 300) {
             backToTopButton.style.display = 'block';
-            backToTopButton.style.opacity = '1';
+            setTimeout(() => {
+                backToTopButton.style.opacity = '1';
+            }, 10);
         } else {
             backToTopButton.style.opacity = '0';
             setTimeout(() => {
@@ -28,19 +28,21 @@ document.addEventListener('DOMContentLoaded', () => {
     // Sticky Call-to-Action Buttons
     const ctaButtons = document.querySelectorAll('.btn-primary, .btn-secondary');
 
-    ctaButtons.forEach(btn => {
-        btn.classList.add('sticky-cta');
-    });
+    // Handle Sticky CTA Buttons Responsively
+    function handleStickyCTAs() {
+        if (window.innerWidth > 768) {
+            ctaButtons.forEach(btn => {
+                btn.classList.add('position-fixed', 'bottom-0', 'end-0', 'm-3');
+            });
+        } else {
+            ctaButtons.forEach(btn => {
+                btn.classList.remove('position-fixed', 'bottom-0', 'end-0', 'm-3');
+            });
+        }
+    }
 
-    // Handle Team Profile Modals (if multiple team members)
-    // Example for multiple team members
-    const teamModals = document.querySelectorAll('.team-card .btn');
-
-    teamModals.forEach(modalBtn => {
-        modalBtn.addEventListener('click', () => {
-            // Modal functionality handled by Bootstrap
-        });
-    });
+    window.addEventListener('resize', handleStickyCTAs);
+    handleStickyCTAs();
 
     // Initialize Google Map
     window.initMap = function() {
@@ -76,6 +78,12 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        // Simple Frontend Validation
+        if (!contactForm.checkValidity()) {
+            contactForm.classList.add('was-validated');
+            return;
+        }
+
         const formData = {
             name: contactForm.contactName.value.trim(),
             email: contactForm.contactEmail.value.trim(),
@@ -96,6 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert('Thank you for your message!');
                 contactForm.reset();
                 grecaptcha.reset();
+                contactForm.classList.remove('was-validated');
             } else {
                 alert('There was an error submitting your message. Please try again later.');
             }
@@ -114,6 +123,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const recaptchaResponse = grecaptcha.getResponse();
         if (recaptchaResponse.length === 0) {
             alert('Please complete the reCAPTCHA.');
+            return;
+        }
+
+        // Simple Frontend Validation
+        if (!dietaryForm.checkValidity()) {
+            dietaryForm.classList.add('was-validated');
             return;
         }
 
@@ -136,6 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert('Your dietary needs have been submitted!');
                 dietaryForm.reset();
                 grecaptcha.reset();
+                dietaryForm.classList.remove('was-validated');
             } else {
                 alert('There was an error submitting your information. Please try again later.');
             }
@@ -162,12 +178,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Initialize Carousel for Portfolio Section
+    const portfolioCarousel = document.querySelector('#portfolioCarousel');
+    if (portfolioCarousel) {
+        new bootstrap.Carousel(portfolioCarousel, {
+            interval: 5000,
+            wrap: true
+        });
+    }
+
+    // Initialize Carousel for Testimonials Section
+    const testimonialsCarousel = document.querySelector('#testimonialsCarousel');
+    if (testimonialsCarousel) {
+        new bootstrap.Carousel(testimonialsCarousel, {
+            interval: 7000,
+            wrap: true
+        });
+    }
+
     // Language Toggle Button
     const languageToggle = document.getElementById('language-toggle');
+    const languageSelector = document.getElementById('language-selector');
     languageToggle.addEventListener('click', () => {
-        const currentLang = document.getElementById('language-selector').value;
+        const currentLang = languageSelector.value;
         const newLang = currentLang === 'en' ? 'es' : 'en';
-        document.getElementById('language-selector').value = newLang;
+        languageSelector.value = newLang;
         const event = new Event('change');
         languageSelector.dispatchEvent(event);
     });
@@ -187,25 +222,29 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Handle Sticky CTA Buttons Responsively
-    function handleStickyCTAs() {
-        if (window.innerWidth > 768) {
-            ctaButtons.forEach(btn => {
-                btn.classList.add('position-fixed', 'bottom-0', 'end-0', 'm-3');
-            });
-        } else {
-            ctaButtons.forEach(btn => {
-                btn.classList.remove('position-fixed', 'bottom-0', 'end-0', 'm-3');
-            });
-        }
-    }
+    // Fade-in Animations on Scroll using Intersection Observer
+    const faders = document.querySelectorAll('.fade-in');
 
-    window.addEventListener('resize', handleStickyCTAs);
-    handleStickyCTAs();
+    const appearOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+    };
 
-    // Initialize all Bootstrap tooltips (if any)
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('fade-in');
+            appearOnScroll.unobserve(entry.target);
+        });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+        appearOnScroll.observe(fader);
+    });
+
+    // Initialize tooltips (if any)
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
     var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
       return new bootstrap.Tooltip(tooltipTriggerEl)
-    })
+    });
 });

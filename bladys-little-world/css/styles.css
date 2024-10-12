@@ -19,6 +19,10 @@
     --transition-speed: 0.3s;
     --font-size-base: 16px;
     --text-color: #4a4a4a; /* Dark Gray for Readability */
+    --heading-color: var(--primary-color);
+    --footer-background: #333;
+    --footer-text-color: #fff;
+    --overlay-color: rgba(213, 84, 0, 0.4);
 }
 
 /* Body Styling */
@@ -32,11 +36,43 @@ body {
     background-size: 56.57px 56.57px; /* Adjusted for gradient pattern */
 }
 
+/* Skip Link */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    z-index: 100;
+    transition: top var(--transition-speed);
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
 /* Header */
 header {
     position: sticky;
     top: 0;
     z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.9);
+    -webkit-backdrop-filter: blur(10px); /* Added for Safari compatibility */
+    backdrop-filter: blur(10px);
+    transition: background-color var(--transition-speed);
+}
+
+header .navbar-nav .nav-link {
+    font-family: var(--font-secondary);
+    font-weight: 600;
+    color: var(--text-color);
+    transition: color var(--transition-speed);
+}
+
+header .navbar-nav .nav-link.active,
+header .navbar-nav .nav-link:hover {
+    color: var(--primary-color);
 }
 
 /* Hero Section */
@@ -53,7 +89,7 @@ header {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(213, 84, 0, 0.4); /* Semi-transparent overlay */
+    background: var(--overlay-color); /* Semi-transparent overlay */
 }
 
 .hero h1 {
@@ -61,16 +97,19 @@ header {
     font-size: 3rem;
     color: #fff;
     margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 .hero p {
     font-size: 1.25rem;
     color: #fff;
     margin-bottom: 2rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
 .btn-primary,
 .btn-secondary {
+    font-family: var(--font-secondary);
     font-weight: 600;
     transition: background-color var(--transition-speed), transform var(--transition-speed);
 }
@@ -80,20 +119,26 @@ header {
     transform: scale(1.05);
 }
 
-/* About Us Section */
-.about h2 {
-    font-family: var(--font-secondary);
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
+/* Sections */
+section {
+    padding: 4rem 0;
 }
 
-.about p {
+section h2 {
+    font-family: var(--font-secondary);
+    font-size: 2.5rem;
+    color: var(--heading-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+section p {
     font-size: 1rem;
     color: var(--text-color);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
+/* Accordion */
 .accordion-button {
     background-color: var(--secondary-color);
     color: #fff;
@@ -110,13 +155,6 @@ header {
 }
 
 /* Programs Section */
-.programs h2 {
-    font-family: var(--font-secondary);
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
-}
-
 .programs .nav-tabs .nav-link.active {
     background-color: var(--secondary-color);
     color: #fff;
@@ -124,6 +162,7 @@ header {
 
 .programs .nav-tabs .nav-link {
     color: var(--text-color);
+    font-weight: 600;
 }
 
 .programs .tab-pane img {
@@ -137,53 +176,87 @@ header {
     margin-left: 0.5rem;
 }
 
-/* Team Section */
-.team h2 {
-    font-family: var(--font-secondary);
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
+/* Portfolio Section */
+.portfolio .carousel-inner img {
+    height: 500px;
+    object-fit: cover;
 }
 
+.portfolio .carousel-caption {
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.portfolio .carousel-caption h5,
+.portfolio .carousel-caption p {
+    color: #fff;
+}
+
+/* Testimonials Section */
+.testimonials .testimonial {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.testimonials .testimonial:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.testimonials .testimonial p {
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.testimonials .carousel-inner .carousel-item .testimonial h5 {
+    font-weight: 600;
+}
+
+/* Blog Section */
+.blog .card {
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.blog .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.blog .card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Team Section */
 .team .card {
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
 
 .team .card:hover {
     transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
 }
 
-.team .card img {
+.team .card-img-top {
     height: 300px;
     object-fit: cover;
 }
 
 /* Bilingual Education Section */
-.bilingual h2 {
-    font-family: var(--font-secondary);
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
+.bilingual .carousel-inner img {
+    height: 400px;
+    object-fit: cover;
 }
 
 .bilingual #language-toggle {
     width: 150px;
 }
 
-.bilingual .carousel-inner img {
-    height: 400px;
-    object-fit: cover;
-}
-
 /* Healthy Meals and Snacks Section */
-.meals h2 {
-    font-family: var(--font-secondary);
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
-}
-
 .meals .accordion-button {
     background-color: var(--accent-color);
     color: #fff;
@@ -215,9 +288,10 @@ header {
 /* Contact Section */
 .contact h2 {
     font-family: var(--font-secondary);
-    font-size: 2rem;
-    color: var(--primary-color);
+    font-size: 2.5rem;
+    color: var(--heading-color);
     margin-bottom: 1.5rem;
+    text-align: center;
 }
 
 #map {
@@ -226,6 +300,11 @@ header {
 
 #contact-form label {
     font-weight: 600;
+}
+
+#contact-form .form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(213, 84, 0, 0.25);
 }
 
 #contact-form button {
@@ -237,24 +316,48 @@ header {
     transform: scale(1.05);
 }
 
+/* Social Links */
+.social-links a {
+    color: var(--text-color);
+    margin: 0 0.5rem;
+    transition: color var(--transition-speed), opacity var(--transition-speed);
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+    opacity: 0.8;
+}
+
+.social-links i {
+    transition: transform var(--transition-speed);
+}
+
+.social-links i:hover {
+    transform: scale(1.2);
+}
+
 /* Footer */
 footer {
-    background-color: var(--primary-color);
-    color: #fff;
+    background-color: var(--footer-background);
+    color: var(--footer-text-color);
 }
 
 footer .social-links a {
+    color: var(--footer-text-color);
     margin: 0 0.5rem;
-    transition: opacity var(--transition-speed);
 }
 
 footer .social-links a:hover {
-    opacity: 0.7;
+    color: var(--accent-color);
+    opacity: 0.8;
 }
 
-footer img {
-    width: 24px;
-    height: 24px;
+footer i {
+    transition: transform var(--transition-speed);
+}
+
+footer i:hover {
+    transform: scale(1.2);
 }
 
 /* Back to Top Button */
@@ -279,20 +382,23 @@ footer img {
     transform: scale(1.1);
 }
 
-/* Skip Link */
-.skip-link {
-    position: absolute;
-    top: -40px;
-    left: 0;
-    background: var(--primary-color);
-    color: #fff;
-    padding: 0.5rem 1rem;
-    z-index: 100;
-    transition: top var(--transition-speed);
+/* Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s forwards;
 }
 
-.skip-link:focus {
-    top: 0;
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hover-animate:hover {
+    transform: scale(1.05);
+    transition: transform var(--transition-speed);
 }
 
 /* Responsive Design */
@@ -305,7 +411,7 @@ footer img {
         font-size: 1rem;
     }
 
-    .team .card img {
+    .team .card-img-top {
         height: 200px;
     }
 
