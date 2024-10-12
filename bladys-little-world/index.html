@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blady's Little World</title>
+    <meta name="description" content="Welcome to Blady's Little World, a nurturing environment for early childhood education and bilingual learning.">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="Blady, Little World, Early Childhood Education, Bilingual Learning, Daycare">
+    <meta name="author" content="Your Name">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Blady's Little World">
+    <meta property="og:description" content="A nurturing environment for early childhood education and bilingual learning.">
+    <meta property="og:image" content="assets/images/logo.png">
+    <meta property="og:url" content="https://yourgithubusername.github.io/Bladys-Little-World/">
+    <meta property="og:type" content="website">
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "Blady's Little World",
+      "url": "https://yourgithubusername.github.io/Bladys-Little-World/",
+      "logo": "https://yourgithubusername.github.io/Bladys-Little-World/assets/images/logo.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-555-555-5555",
+        "contactType": "Customer Service",
+        "email": "contact@bladyslittleworld.com"
+      },
+      "sameAs": [
+        "https://www.facebook.com/yourpage",
+        "https://www.twitter.com/yourprofile",
+        "https://www.instagram.com/yourprofile"
+      ]
+    }
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Google reCAPTCHA -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body class="warm-theme">
+    <!-- Skip to Content Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="assets/images/logo.png" alt="Blady's Little World Logo" height="60">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#home" data-translate="home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about" data-translate="about">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#programs" data-translate="programs">Programs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact" data-translate="contact">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <select id="language-selector" aria-label="Select Language" class="form-select">
+                                <option value="en">English</option>
+                                <option value="es">Español</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section id="home" class="hero d-flex align-items-center">
+            <div class="container text-center position-relative z-index-1">
+                <h1 data-translate="welcome">Welcome to Blady's Little World</h1>
+                <p data-translate="discover">Discover a place of wonder and exploration.</p>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="#contact" class="btn btn-primary btn-lg" data-translate="requestInfo" aria-label="Request Information">Request Information</a>
+                    <a href="#contact" class="btn btn-secondary btn-lg" data-translate="scheduleTour" aria-label="Schedule a Tour">Schedule a Tour</a>
+                </div>
+            </div>
+            <div class="overlay"></div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="about py-5">
+            <div class="container">
+                <h2 data-translate="aboutUs">About Us</h2>
+                <p data-translate="aboutDescription">Blady's Little World is dedicated to providing a nurturing environment for early childhood education and fostering bilingual learning. Our mission is to empower children with the skills and confidence they need to thrive in a diverse and dynamic world.</p>
+                <div class="accordion" id="aboutAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingVision">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseVision" aria-expanded="true" aria-controls="collapseVision">
+                                <span data-translate="vision">Our Vision</span>
+                            </button>
+                        </h2>
+                        <div id="collapseVision" class="accordion-collapse collapse show" aria-labelledby="headingVision" data-bs-parent="#aboutAccordion">
+                            <div class="accordion-body">
+                                <p data-translate="visionContent">To create a world where every child has the opportunity to learn, grow, and excel in a bilingual environment that respects and celebrates diversity.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingMission">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMission" aria-expanded="false" aria-controls="collapseMission">
+                                <span data-translate="mission">Our Mission</span>
+                            </button>
+                        </h2>
+                        <div id="collapseMission" class="accordion-collapse collapse" aria-labelledby="headingMission" data-bs-parent="#aboutAccordion">
+                            <div class="accordion-body">
+                                <p data-translate="missionContent">To provide high-quality education and care that fosters the intellectual, social, and emotional development of each child, preparing them for future success.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Programs Section -->
+        <section id="programs" class="programs py-5 bg-light">
+            <div class="container">
+                <h2 data-translate="programs">Programs</h2>
+                <ul class="nav nav-tabs" id="programsTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="infant-care-tab" data-bs-toggle="tab" data-bs-target="#infant-care" type="button" role="tab" aria-controls="infant-care" aria-selected="true">
+                            <span data-translate="infantCare">Infant Care</span> <span class="badge bg-secondary" data-translate="ageGroupInfant">0-12 Months</span>
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="toddler-program-tab" data-bs-toggle="tab" data-bs-target="#toddler-program" type="button" role="tab" aria-controls="toddler-program" aria-selected="false">
+                            <span data-translate="toddlerProgram">Toddler Program</span> <span class="badge bg-secondary" data-translate="ageGroupToddler">1-3 Years</span>
+                        </button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="programsTabContent">
+                    <div class="tab-pane fade show active" id="infant-care" role="tabpanel" aria-labelledby="infant-care-tab">
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <img src="assets/images/infant_care.jpg" alt="Infant Care Program" class="img-fluid rounded shadow">
+                            </div>
+                            <div class="col-md-6">
+                                <h3 data-translate="infantCare">Infant Care</h3>
+                                <p data-translate="infantCareDescription">Our Infant Care program provides a safe and loving environment where your little ones can grow and develop through age-appropriate activities and personalized attention.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="toddler-program" role="tabpanel" aria-labelledby="toddler-program-tab">
+                        <div class="row mt-4">
+                            <div class="col-md-6 order-md-2">
+                                <img src="assets/images/toddler_program.jpg" alt="Toddler Program" class="img-fluid rounded shadow">
+                            </div>
+                            <div class="col-md-6 order-md-1">
+                                <h3 data-translate="toddlerProgram">Toddler Program</h3>
+                                <p data-translate="toddlerProgramDescription">Our Toddler Program encourages exploration and creativity, helping children develop essential skills in a fun and engaging setting.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team" class="team py-5">
+            <div class="container">
+                <h2 data-translate="ourTeam">Our Team</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card team-card h-100">
+                            <img src="assets/images/team1.jpg" class="card-img-top" alt="Jane Doe">
+                            <div class="card-body">
+                                <h5 class="card-title">Jane Doe</h5>
+                                <p class="card-text">Lead Educator</p>
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#teamModal1" aria-label="View Jane Doe's Profile">View Profile</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Repeat similar blocks for other team members -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Modal Example -->
+        <div class="modal fade" id="teamModal1" tabindex="-1" aria-labelledby="teamModalLabel1" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="teamModalLabel1">Jane Doe - Lead Educator</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="assets/images/team1.jpg" class="img-fluid mb-3" alt="Jane Doe">
+                        <p>Jane has over 10 years of experience in early childhood education, specializing in bilingual learning environments. She is passionate about fostering a love for learning in every child.</p>
+                        <!-- Additional details -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-translate="close">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bilingual Education Section -->
+        <section id="bilingual" class="bilingual py-5 bg-light">
+            <div class="container">
+                <h2 data-translate="bilingualEducation">Bilingual Education</h2>
+                <div class="d-flex justify-content-center mb-4">
+                    <button id="language-toggle" class="btn btn-outline-secondary" aria-label="Toggle Language">Español</button>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <video controls class="w-100 rounded shadow">
+                            <source src="assets/videos/bilingual_intro.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="col-md-6">
+                        <div id="bilingualCarousel" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="assets/images/bilingual1.jpg" class="d-block w-100" alt="Bilingual Program Image 1">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="assets/images/bilingual2.jpg" class="d-block w-100" alt="Bilingual Program Image 2">
+                                </div>
+                                <!-- Add more carousel items as needed -->
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#bilingualCarousel" data-bs-slide="prev" aria-label="Previous Slide">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#bilingualCarousel" data-bs-slide="next" aria-label="Next Slide">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4 text-center">
+                    <a href="assets/brochures/bilingual_program.pdf" class="btn btn-primary" download data-translate="downloadBrochure" aria-label="Download Bilingual Education Brochure">Download Brochure</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Healthy Meals and Snacks Section -->
+        <section id="meals" class="meals py-5">
+            <div class="container">
+                <h2 data-translate="healthyMeals">Healthy Meals and Snacks</h2>
+                <div class="accordion" id="mealsAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingWeek1">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWeek1" aria-expanded="true" aria-controls="collapseWeek1">
+                                Week 1
+                            </button>
+                        </h2>
+                        <div id="collapseWeek1" class="accordion-collapse collapse show" aria-labelledby="headingWeek1" data-bs-parent="#mealsAccordion">
+                            <div class="accordion-body">
+                                <ul>
+                                    <li><strong>Monday:</strong> Oatmeal with fresh fruits</li>
+                                    <li><strong>Tuesday:</strong> Grilled chicken with vegetables</li>
+                                    <li><strong>Wednesday:</strong> Pasta with tomato sauce</li>
+                                    <li><strong>Thursday:</strong> Fish tacos</li>
+                                    <li><strong>Friday:</strong> Vegetable stir-fry</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Repeat accordion items for additional weeks -->
+                </div>
+                <div class="mt-4">
+                    <h4 data-translate="dietaryRestrictions">Dietary Restrictions</h4>
+                    <form id="dietary-form">
+                        <div class="mb-3">
+                            <label for="childName" class="form-label" data-translate="childNameLabel">Child's Name:</label>
+                            <input type="text" class="form-control" id="childName" name="childName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="dietaryNeeds" class="form-label" data-translate="dietaryNeedsLabel">Dietary Needs:</label>
+                            <textarea class="form-control" id="dietaryNeeds" name="dietaryNeeds" rows="3" required></textarea>
+                        </div>
+                        <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
+                        <button type="submit" class="btn btn-primary mt-3" data-translate="submitDietary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact py-5 bg-light">
+            <div class="container">
+                <h2 data-translate="contactUs">Contact Us</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- Google Map -->
+                        <div id="map" class="w-100 rounded shadow" style="height: 400px;"></div>
+                        <div class="mt-3 text-center">
+                            <a href="#" id="get-directions" class="btn btn-secondary" data-translate="getDirections" aria-label="Get Directions">Get Directions</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <!-- Contact Form -->
+                        <form id="contact-form" novalidate>
+                            <div class="mb-3">
+                                <label for="contactName" class="form-label" data-translate="nameLabel">Name:</label>
+                                <input type="text" class="form-control" id="contactName" name="contactName" required aria-required="true">
+                            </div>
+                            <div class="mb-3">
+                                <label for="contactEmail" class="form-label" data-translate="emailLabel">Email:</label>
+                                <input type="email" class="form-control" id="contactEmail" name="contactEmail" required aria-required="true">
+                            </div>
+                            <div class="mb-3">
+                                <label for="contactMessage" class="form-label" data-translate="messageLabel">Message:</label>
+                                <textarea class="form-control" id="contactMessage" name="contactMessage" rows="5" required aria-required="true"></textarea>
+                            </div>
+                            <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
+                            <button type="submit" class="btn btn-primary mt-3" data-translate="sendMessage">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-4">
+        <div class="container text-center">
+            <p>&copy; 2024 Blady's Little World. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/yourpage" aria-label="Facebook">
+                    <img src="assets/icons/facebook.svg" alt="Facebook">
+                </a>
+                <a href="https://www.twitter.com/yourprofile" aria-label="Twitter">
+                    <img src="assets/icons/twitter.svg" alt="Twitter">
+                </a>
+                <a href="https://www.instagram.com/yourprofile" aria-label="Instagram">
+                    <img src="assets/icons/instagram.svg" alt="Instagram">
+                </a>
+                <!-- Add more social links as needed -->
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="btn btn-primary" aria-label="Back to Top">↑</button>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Google Maps API -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap"></script>
+
+    <!-- Custom Scripts -->
+    <script src="js/translate.js" defer></script>
+    <script src="js/scripts.js" defer></script>
+</body>
+</html>

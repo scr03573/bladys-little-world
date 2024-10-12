@@ -1,0 +1,33 @@
+{
+  "name": "bladys-little-world",
+  "version": "1.0.0",
+  "description": "Blady's Little World offers bilingual early childhood education, providing a safe and nurturing environment where children can explore, learn, and grow through innovative teaching and strong family partnerships.",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server -c-1",
+    "serve": "serve -s .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },  
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scr03573/bladys-little-world.git"
+  },
+  "keywords": [
+    "childcare",
+    "bilingual",
+    "education",
+    "early-childhood",
+    "learning",
+    "toddler",
+    "development"
+  ],
+  "author": "Cameron Roy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/scr03573/bladys-little-world/issues"
+  },
+  "homepage": "https://github.com/scr03573/bladys-little-world#readme",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

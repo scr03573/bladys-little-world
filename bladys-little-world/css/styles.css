@@ -1,0 +1,321 @@
+/* Reset CSS */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Variables for Consistent Styling */
+:root {
+    --primary-color: #d35400; /* Warm Orange */
+    --secondary-color: #e67e22; /* Light Orange */
+    --accent-color: #f1c40f; /* Soft Yellow */
+    --background-color: #fffaf0; /* Floral White */
+    --font-primary: 'Roboto', sans-serif;
+    --font-secondary: 'Montserrat', sans-serif;
+    --max-width: 1200px;
+    --transition-speed: 0.3s;
+    --font-size-base: 16px;
+    --text-color: #4a4a4a; /* Dark Gray for Readability */
+}
+
+/* Body Styling */
+body {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    background-image: linear-gradient(135deg, #fffaf0 25%, #fdebd0 25%, #fdebd0 50%, #fffaf0 50%, #fffaf0 75%, #fdebd0 75%, #fdebd0 100%);
+    background-size: 56.57px 56.57px; /* Adjusted for gradient pattern */
+}
+
+/* Header */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(213, 84, 0, 0.4); /* Semi-transparent overlay */
+}
+
+.hero h1 {
+    font-family: var(--font-secondary);
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: #fff;
+    margin-bottom: 2rem;
+}
+
+.btn-primary,
+.btn-secondary {
+    font-weight: 600;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+    transform: scale(1.05);
+}
+
+/* About Us Section */
+.about h2 {
+    font-family: var(--font-secondary);
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.about p {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+}
+
+.accordion-button {
+    background-color: var(--secondary-color);
+    color: #fff;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.accordion-body {
+    background-color: #fff;
+    color: var(--text-color);
+}
+
+/* Programs Section */
+.programs h2 {
+    font-family: var(--font-secondary);
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.programs .nav-tabs .nav-link.active {
+    background-color: var(--secondary-color);
+    color: #fff;
+}
+
+.programs .nav-tabs .nav-link {
+    color: var(--text-color);
+}
+
+.programs .tab-pane img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.programs .badge {
+    margin-left: 0.5rem;
+}
+
+/* Team Section */
+.team h2 {
+    font-family: var(--font-secondary);
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.team .card {
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.team .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.team .card img {
+    height: 300px;
+    object-fit: cover;
+}
+
+/* Bilingual Education Section */
+.bilingual h2 {
+    font-family: var(--font-secondary);
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.bilingual #language-toggle {
+    width: 150px;
+}
+
+.bilingual .carousel-inner img {
+    height: 400px;
+    object-fit: cover;
+}
+
+/* Healthy Meals and Snacks Section */
+.meals h2 {
+    font-family: var(--font-secondary);
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.meals .accordion-button {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+.meals .accordion-button:not(.collapsed) {
+    background-color: var(--secondary-color);
+    color: #fff;
+}
+
+.meals .accordion-body {
+    background-color: #fff;
+    color: var(--text-color);
+}
+
+.meals form label {
+    font-weight: 600;
+}
+
+.meals form button {
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+.meals form button:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+/* Contact Section */
+.contact h2 {
+    font-family: var(--font-secondary);
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+#map {
+    border-radius: 8px;
+}
+
+#contact-form label {
+    font-weight: 600;
+}
+
+#contact-form button {
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+#contact-form button:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+footer .social-links a {
+    margin: 0 0.5rem;
+    transition: opacity var(--transition-speed);
+}
+
+footer .social-links a:hover {
+    opacity: 0.7;
+}
+
+footer img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Back to Top Button */
+#back-to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    padding: 0.75rem 1rem;
+    background-color: var(--secondary-color);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    font-size: 1.25rem;
+    z-index: 1000;
+    transition: background-color var(--transition-speed), transform var(--transition-speed), opacity var(--transition-speed);
+}
+
+#back-to-top:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+/* Skip Link */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    z-index: 100;
+    transition: top var(--transition-speed);
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .team .card img {
+        height: 200px;
+    }
+
+    .bilingual .carousel-inner img {
+        height: 300px;
+    }
+
+    #back-to-top {
+        bottom: 20px;
+        right: 20px;
+        font-size: 1rem;
+    }
+}
