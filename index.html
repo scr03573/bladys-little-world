@@ -1,44 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blady's Little World</title>
-    <meta name="description" content="Welcome to Blady's Little World, a nurturing environment for early childhood education and bilingual learning.">
-    
+    <meta name="description" content="Welcome to Blady's Little World, a warm and caring place for early childhood education and bilingual learning, run by a mother and daughter.">
+
     <!-- SEO Meta Tags -->
-    <meta name="keywords" content="Blady, Little World, Early Childhood Education, Bilingual Learning, Daycare">
+    <meta name="keywords" content="Blady, Little World, Early Childhood Education, Bilingual Learning, Daycare, Family Owned">
     <meta name="author" content="Blady's Little World">
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Blady's Little World">
-    <meta property="og:description" content="A nurturing environment for early childhood education and bilingual learning.">
+    <meta property="og:description" content="A warm and caring place for early childhood education and bilingual learning, run by a mother and daughter.">
     <meta property="og:image" content="https://scr03573.github.io/bladys-little-world/assets/images/logo.png">
     <meta property="og:url" content="https://scr03573.github.io/bladys-little-world/">
     <meta property="og:type" content="website">
-
-    <!-- Schema.org Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "EducationalOrganization",
-      "name": "Blady's Little World",
-      "url": "https://scr03573.github.io/bladys-little-world/",
-      "logo": "https://scr03573.github.io/bladys-little-world/assets/images/logo.png",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+1-774-623-0803",
-        "contactType": "Customer Service",
-        "email": "bladyslittleworld@gmail.com"
-      },
-      "sameAs": [
-        "https://www.facebook.com/yourpage",
-        "https://www.twitter.com/yourprofile",
-        "https://www.instagram.com/yourprofile",
-        "https://www.linkedin.com/in/yourprofile"
-      ]
-    }
-    </script>
 
     <!-- Favicon -->
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
@@ -47,7 +25,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Nunito:wght@700&display=swap" rel="stylesheet">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -56,22 +34,119 @@
     <link rel="stylesheet" href="css/styles.css">
 
     <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTTXJRjrN1H6yJ1+9HktKj9r6vVuLw5N/3oV2EhTVeGVRp3F0qFfB1GPp1G3H6j9a+/p1z4H3A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossorigin="anonymous" />
 
     <!-- Google reCAPTCHA -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <!-- Custom Styles for Family Feel -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f8f8;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Nunito', sans-serif;
+            color: #333;
+        }
+
+        .hero {
+            background: url('assets/images/hero-family.jpg') no-repeat center center;
+            background-size: cover;
+            color: #fff;
+            padding: 100px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+
+        .btn-primary {
+            background-color: #ffbb93;
+            border: none;
+            font-size: 1.1rem;
+            padding: 10px 20px;
+        }
+
+        .btn-secondary {
+            background-color: #f7941e;
+            border: none;
+            font-size: 1.1rem;
+            padding: 10px 20px;
+        }
+
+        .section-card {
+            border: 1px solid #e3e3e3;
+            padding: 20px;
+            border-radius: 15px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .warm-theme {
+            background-color: #fff4f2;
+        }
+
+        footer {
+            background-color: #ffbb93;
+            color: #fff;
+        }
+
+        .social-links a {
+            color: #fff;
+        }
+
+        .social-links a:hover {
+            color: #ffe5d4;
+        }
+
+        .contact-info p, .contact-info a {
+            color: #333;
+        }
+
+        .contact-info a:hover {
+            color: #f7941e;
+        }
+
+        .testimonials {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 30px;
+        }
+
+        /* For Better Proportions */
+        .container {
+            max-width: 1100px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .btn-primary, .btn-secondary {
+                font-size: 1rem;
+            }
+        }
+    </style>
+
 </head>
+
 <body class="warm-theme">
-    
-    <!-- Header -->
+
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
             <div class="container">
                 <a class="navbar-brand" href="#">
                     <img src="assets/images/logo.png" alt="Blady's Little World Logo" height="60">
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -109,121 +184,34 @@
         <section id="home" class="hero d-flex align-items-center">
             <div class="overlay"></div>
             <div class="container text-center position-relative z-index-1">
-                <h1 data-translate="welcome">Empowering Young Minds at Blady's Little World</h1>
-                <p data-translate="discover">At Blady's Little World, our vision is to be a leader in early childhood education, cultivating a love for learning and cultural appreciation. Our mission is to provide a safe, inclusive, and engaging bilingual environment that empowers children to explore, learn, and grow into confident, empathetic individuals through innovative teaching and strong family partnerships.</p>
+                <h1 data-translate="welcome">Blady’s Little World – A Family of Caring Hearts</h1>
+                <p data-translate="intro">Run by a mother and daughter, we create a safe, nurturing space where your child is treated like family, with a focus on bilingual learning.</p>
                 <div class="d-flex justify-content-center gap-3">
                     <a href="#contact" class="btn btn-primary btn-lg" data-translate="requestInfo" aria-label="Request Information">Request Information</a>
                     <a href="#contact" class="btn btn-secondary btn-lg" data-translate="scheduleTour" aria-label="Schedule a Tour">Schedule a Tour</a>
                 </div>
                 <div class="mt-4">
-                    <h4>Operating Hours:</h4>
+                    <h4 data-translate="hours">Operating Hours:</h4>
                     <p>
-                        Mon: 7:00am - 5:00pm<br>
-                        Tues: 7:00am - 5:00pm<br>
-                        Wed: 7:00am - 5:00pm<br>
-                        Thur: 7:00am - 5:00pm<br>
-                        Fri: 7:00am - 5:00pm
+                        Mon-Fri: 7:00am - 5:00pm
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- About Us Section -->
-        <section id="about" class="about py-5">
+        <!-- Founders' Experience Section -->
+        <section id="founders-experience" class="founders-experience py-5">
             <div class="container">
-                <h2 data-translate="aboutUs">About Us</h2>
-                <p data-translate="aboutDescription">Blady's Little World is dedicated to providing a nurturing environment for early childhood education and fostering bilingual learning. Our mission is to empower children with the skills and confidence they need to thrive in a diverse and dynamic world.</p>
-                <div class="accordion" id="aboutAccordion">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingVision">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseVision" aria-expanded="true" aria-controls="collapseVision">
-                                Vision
-                            </button>
-                        </h2>
-                        <div id="collapseVision" class="accordion-collapse collapse show" aria-labelledby="headingVision" data-bs-parent="#aboutAccordion">
-                            <div class="accordion-body">
-                                <p>Our vision at Blady's Little World is to be a recognized leader in early childhood education. We strive to cultivate a love for learning and cultural appreciation, empowering our little ones to become confident, empathetic, and globally-minded individuals. By nurturing a diverse and supportive environment, we aim to prepare our children to embrace the world with empathy and confidence.</p>
-                            </div>
-                        </div>
+                <h2 data-translate="meetFounders">Meet the Founders</h2>
+                <div class="row">
+                    <div class="col-md-6 mx-auto section-card">
+                        <h3 data-translate="founder1Title">Ms. Bladymar Porras - Lead Teacher</h3>
+                        <p data-translate="founder1Desc">Bladymar, the heart behind Blady’s Little World, has dedicated her life to creating a loving and engaging environment for children. Certified as a Child Development Associate (CDA), she blends interactive learning with bilingual education to ensure that each child feels valued and nurtured.</p>
                     </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingMission">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMission" aria-expanded="false" aria-controls="collapseMission">
-                                Mission
-                            </button>
-                        </h2>
-                        <div id="collapseMission" class="accordion-collapse collapse" aria-labelledby="headingMission" data-bs-parent="#aboutAccordion">
-                            <div class="accordion-body">
-                                <p>Our mission is to provide a quality educational service that promotes a safe, inclusive, and engaging bilingual environment where children can explore, learn, and grow. We are dedicated to fostering language development, cultural appreciation, and social-emotional skills, empowering every child to become a curious, confident, and compassionate individual. Through innovative teaching practices and strong community partnerships, we aim to inspire a lifelong love for learning in every child. We work closely with families to achieve holistic child development, involving them in the entire educational process.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Our Impact Section -->
-                <div class="mt-5">
-                    <h3>Our Impact</h3>
-                    <div class="row g-4">
-                        <div class="col-md-4">
-                            <div class="card impact-card text-center h-100">
-                                <div class="card-body">
-                                    <i class="fas fa-users fa-3x mb-3 text-primary"></i>
-                                    <h5 class="card-title">Over 500 Enrolled Students</h5>
-                                    <p class="card-text">Empowering more than 500 children each year through comprehensive early education programs.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card impact-card text-center h-100">
-                                <div class="card-body">
-                                    <i class="fas fa-graduation-cap fa-3x mb-3 text-primary"></i>
-                                    <h5 class="card-title">Certified Educators</h5>
-                                    <p class="card-text">Our team consists of highly qualified and passionate educators dedicated to your child's growth.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card impact-card text-center h-100">
-                                <div class="card-body">
-                                    <i class="fas fa-heart fa-3x mb-3 text-primary"></i>
-                                    <h5 class="card-title">Community Engagement</h5>
-                                    <p class="card-text">Active involvement in the community to foster strong family and community partnerships.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonials Section -->
-                <div class="mt-5">
-                    <h3>What Parents Say</h3>
-                    <div id="testimonialsCarousel" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <div class="testimonial text-center">
-                                    <p class="mb-4">"Blady's Little World has transformed my child's early learning experience. The educators are exceptional and truly care about each child's development."</p>
-                                    <h5>- Sarah L.</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="testimonial text-center">
-                                    <p class="mb-4">"The bilingual program has given my child a strong foundation in both English and Spanish. I couldn't be happier with the progress I've seen."</p>
-                                    <h5>- Michael T.</h5>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="testimonial text-center">
-                                    <p class="mb-4">"The community atmosphere at Blady's Little World is incredible. It's more than just a daycare; it's a family."</p>
-                                    <h5>- Emily R.</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="prev" aria-label="Previous Testimonial">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="next" aria-label="Next Testimonial">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        </button>
+                    <div class="col-md-6 mx-auto section-card">
+                        <h3 data-translate="founder2Title">Ms. Paola Pedraza - Assistant Teacher</h3>
+                        <p data-translate="founder2Desc">Paola’s passion for early education, combined with her warm personality, helps children feel comfortable and confident. With 7 years of experience, she specializes in emotional development and interactive play. Every child in Paola’s care is given the individual attention they need to flourish.</p>
                     </div>
                 </div>
             </div>
@@ -232,79 +220,22 @@
         <!-- Programs Section -->
         <section id="programs" class="programs py-5 bg-light">
             <div class="container">
-                <h2 data-translate="programs">Programs</h2>
-                <div class="accordion" id="programsAccordion">
-                    <!-- Infant Care -->
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingInfantCare">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInfantCare" aria-expanded="true" aria-controls="collapseInfantCare">
-                                Infant Care
-                            </button>
-                        </h2>
-                        <div id="collapseInfantCare" class="accordion-collapse collapse show" aria-labelledby="headingInfantCare" data-bs-parent="#programsAccordion">
-                            <div class="accordion-body">
-                                <ul>
-                                    <li><strong>Age Group:</strong> 5 months to 12 months</li>
-                                    <li><strong>Description:</strong> Our infant care program focuses on creating a safe and loving atmosphere where your little ones can explore and develop at their own pace. We prioritize bonding, sensory play, and individualized attention.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Toddler Program -->
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingToddlerProgram">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseToddlerProgram" aria-expanded="false" aria-controls="collapseToddlerProgram">
-                                Toddler Program
-                            </button>
-                        </h2>
-                        <div id="collapseToddlerProgram" class="accordion-collapse collapse" aria-labelledby="headingToddlerProgram" data-bs-parent="#programsAccordion">
-                            <div class="accordion-body">
-                                <ul>
-                                    <li><strong>Age Group:</strong> 1 to 3 years</li>
-                                    <li><strong>Description:</strong> In our toddler program, children engage in active learning through play. We encourage curiosity and independence while introducing early literacy and language skills in both English and Spanish.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Bilingual Education -->
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingBilingualEducation">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBilingualEducation" aria-expanded="false" aria-controls="collapseBilingualEducation">
-                                Bilingual Education
-                            </button>
-                        </h2>
-                        <div id="collapseBilingualEducation" class="accordion-collapse collapse" aria-labelledby="headingBilingualEducation" data-bs-parent="#programsAccordion">
-                            <div class="accordion-body">
-                                <p>We offer a bilingual curriculum that immerses children in both English and Spanish, fostering language development and cultural appreciation from an early age.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Healthy Meals and Snacks -->
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingHealthyMeals">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHealthyMeals" aria-expanded="false" aria-controls="collapseHealthyMeals">
-                                Healthy Meals and Snacks
-                            </button>
-                        </h2>
-                        <div id="collapseHealthyMeals" class="accordion-collapse collapse" aria-labelledby="headingHealthyMeals" data-bs-parent="#programsAccordion">
-                            <div class="accordion-body">
-                                <p>We offer breakfast, lunch, and snacks that cater to dietary needs, ensuring your child receives the nutrition they need to grow and thrive.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Schedule -->
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingSchedule">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSchedule" aria-expanded="false" aria-controls="collapseSchedule">
-                                Schedule
-                            </button>
-                        </h2>
-                        <div id="collapseSchedule" class="accordion-collapse collapse" aria-labelledby="headingSchedule" data-bs-parent="#programsAccordion">
-                            <div class="accordion-body">
-                                <p>We offer flexible scheduling options, including full-time, part-time, and a flexible schedule, to accommodate the diverse needs of our families.</p>
-                            </div>
-                        </div>
-                    </div>
+                <h2 data-translate="programs">Our Programs</h2>
+                <div class="section-card">
+                    <h3 data-translate="infantCare">Infant Care</h3>
+                    <p data-translate="infantCareDesc">Our infant care program focuses on creating a cozy and loving atmosphere where your little ones can explore and develop at their own pace. We prioritize bonding, sensory play, and individual attention.</p>
+                </div>
+                <div class="section-card">
+                    <h3 data-translate="toddlerProgram">Toddler Program</h3>
+                    <p data-translate="toddlerProgramDesc">In our toddler program, children engage in active learning through play. We encourage curiosity and independence while introducing early literacy and language skills in both English and Spanish.</p>
+                </div>
+                <div class="section-card">
+                    <h3 data-translate="bilingualEducation">Bilingual Education</h3>
+                    <p data-translate="bilingualEducationDesc">We offer a bilingual curriculum that immerses children in both English and Spanish, fostering language development and cultural appreciation from an early age.</p>
+                </div>
+                <div class="section-card">
+                    <h3 data-translate="meals">Healthy Meals and Snacks</h3>
+                    <p data-translate="mealsDesc">We offer breakfast, lunch, and snacks that cater to dietary needs, ensuring your child receives the nutrition they need to grow and thrive.</p>
                 </div>
             </div>
         </section>
@@ -312,64 +243,11 @@
         <!-- Contact Information Section -->
         <section id="contact" class="contact py-5 bg-light">
             <div class="container">
-                <h2 data-translate="contactUs">Contact Information</h2>
-                <div class="row">
-                    <div class="col-md-6 mb-4">
-                        <!-- Google Map -->
-                        <div id="map" class="w-100 rounded shadow" style="height: 400px;" aria-label="Location Map"></div>
-                        <div class="mt-3 text-center">
-                            <a href="https://www.google.com/maps/search/?api=1&query=84+Warren+Ave,+Marlborough,+MA+01752" target="_blank" rel="noopener" id="get-directions" class="btn btn-secondary" data-translate="getDirections" aria-label="Get Directions">Get Directions</a>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <!-- Contact Form -->
-                        <form id="contact-form" novalidate>
-                            <div class="mb-3">
-                                <label for="contactName" class="form-label" data-translate="nameLabel">Name:</label>
-                                <input type="text" class="form-control" id="contactName" name="contactName" required aria-required="true">
-                                <div class="invalid-feedback">
-                                    Please enter your name.
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="contactEmail" class="form-label" data-translate="emailLabel">Email:</label>
-                                <input type="email" class="form-control" id="contactEmail" name="contactEmail" required aria-required="true">
-                                <div class="invalid-feedback">
-                                    Please enter a valid email address.
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="contactMessage" class="form-label" data-translate="messageLabel">Message:</label>
-                                <textarea class="form-control" id="contactMessage" name="contactMessage" rows="5" required aria-required="true"></textarea>
-                                <div class="invalid-feedback">
-                                    Please enter your message.
-                                </div>
-                            </div>
-                            <div class="g-recaptcha" data-sitekey="6Le4r18qAAAAALS8zMWF7TuznooBUJGurtPR8yWp"></div>
-                            <button type="submit" class="btn btn-primary mt-3" data-translate="sendMessage" aria-label="Send Message">Send Message</button>
-                        </form>
-                        <div class="social-links mt-4">
-                            <a href="https://www.facebook.com/yourpage" target="_blank" rel="noopener" aria-label="Facebook">
-                                <i class="fab fa-facebook-f fa-2x"></i>
-                            </a>
-                            <a href="https://www.twitter.com/yourprofile" target="_blank" rel="noopener" aria-label="Twitter">
-                                <i class="fab fa-twitter fa-2x"></i>
-                            </a>
-                            <a href="https://www.instagram.com/yourprofile" target="_blank" rel="noopener" aria-label="Instagram">
-                                <i class="fab fa-instagram fa-2x"></i>
-                            </a>
-                            <a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener" aria-label="LinkedIn">
-                                <i class="fab fa-linkedin fa-2x"></i>
-                            </a>
-                        </div>
-                        <div class="mt-4">
-                            <h4>Contact Information</h4>
-                            <p><strong>Address:</strong> 84 Warren Ave, Marlborough, MA 01752</p>
-                            <p><strong>Phone:</strong> +1 (774) 623-0803</p>
-                            <p><strong>Email:</strong> <a href="mailto:bladyslittleworld@gmail.com">bladyslittleworld@gmail.com</a></p>
-                            <p>You can also find us on Google Maps for easy navigation.</p>
-                        </div>
-                    </div>
+                <h2 data-translate="contactUs">Contact Us</h2>
+                <div class="section-card">
+                    <p><strong>Address:</strong> 84 Warren Ave, Marlborough, MA 01752</p>
+                    <p><strong>Phone:</strong> +1 (774) 623-0803</p>
+                    <p><strong>Email:</strong> <a href="mailto:bladyslittleworld@gmail.com">bladyslittleworld@gmail.com</a></p>
                 </div>
             </div>
         </section>
@@ -402,26 +280,74 @@
     <!-- Bootstrap JS and dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Google Maps API -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAreJJMR6vs7b4hwXBYnJIOnHw2MCkJBAE&callback=initMap"></script>
-
     <!-- Custom Scripts -->
-    <script src="js/translate.js" defer></script>
     <script src="js/scripts.js" defer></script>
 
-    <!-- Initialize Google Map -->
+    <!-- Language Translation Script -->
     <script>
-        function initMap() {
-            const location = { lat: 42.4525, lng: -71.4897 }; // Coordinates for 84 Warren Ave, Marlborough, MA 01752
-            const map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 15,
-                center: location,
+        const translations = {
+            en: {
+                home: 'Home',
+                about: 'About Us',
+                programs: 'Programs',
+                schedule: 'Schedule',
+                contact: 'Contact Information',
+                welcome: 'Blady’s Little World – A Family of Caring Hearts',
+                intro: 'Run by a mother and daughter, we create a safe, nurturing space where your child is treated like family, with a focus on bilingual learning.',
+                requestInfo: 'Request Information',
+                scheduleTour: 'Schedule a Tour',
+                hours: 'Operating Hours:',
+                meetFounders: 'Meet the Founders',
+                founder1Title: 'Ms. Bladymar Porras - Lead Teacher',
+                founder1Desc: 'Bladymar, the heart behind Blady’s Little World, has dedicated her life to creating a loving and engaging environment for children. Certified as a Child Development Associate (CDA), she blends interactive learning with bilingual education to ensure that each child feels valued and nurtured.',
+                founder2Title: 'Ms. Paola Pedraza - Assistant Teacher',
+                founder2Desc: 'Paola’s passion for early education, combined with her warm personality, helps children feel comfortable and confident. With 7 years of experience, she specializes in emotional development and interactive play. Every child in Paola’s care is given the individual attention they need to flourish.',
+                infantCare: 'Infant Care',
+                infantCareDesc: 'Our infant care program focuses on creating a cozy and loving atmosphere where your little ones can explore and develop at their own pace. We prioritize bonding, sensory play, and individual attention.',
+                toddlerProgram: 'Toddler Program',
+                toddlerProgramDesc: 'In our toddler program, children engage in active learning through play. We encourage curiosity and independence while introducing early literacy and language skills in both English and Spanish.',
+                bilingualEducation: 'Bilingual Education',
+                bilingualEducationDesc: 'We offer a bilingual curriculum that immerses children in both English and Spanish, fostering language development and cultural appreciation from an early age.',
+                meals: 'Healthy Meals and Snacks',
+                mealsDesc: 'We offer breakfast, lunch, and snacks that cater to dietary needs, ensuring your child receives the nutrition they need to grow and thrive.',
+                contactUs: 'Contact Us',
+            },
+            es: {
+                home: 'Inicio',
+                about: 'Sobre Nosotros',
+                programs: 'Programas',
+                schedule: 'Horario',
+                contact: 'Información de Contacto',
+                welcome: 'Blady’s Little World – Una Familia de Corazones Cariñosos',
+                intro: 'Dirigido por una madre y una hija, creamos un espacio seguro y acogedor donde su hijo es tratado como familia, con un enfoque en el aprendizaje bilingüe.',
+                requestInfo: 'Solicitar Información',
+                scheduleTour: 'Programar una Visita',
+                hours: 'Horario de Atención:',
+                meetFounders: 'Conozca a los Fundadores',
+                founder1Title: 'Sra. Bladymar Porras - Maestra Principal',
+                founder1Desc: 'Bladymar, el corazón detrás de Blady’s Little World, ha dedicado su vida a crear un ambiente amoroso y atractivo para los niños. Certificada como Asociada de Desarrollo Infantil (CDA), combina el aprendizaje interactivo con la educación bilingüe para garantizar que cada niño se sienta valorado y cuidado.',
+                founder2Title: 'Sra. Paola Pedraza - Asistente de Maestra',
+                founder2Desc: 'La pasión de Paola por la educación temprana, combinada con su personalidad cálida, ayuda a los niños a sentirse cómodos y seguros. Con 7 años de experiencia, se especializa en desarrollo emocional y juego interactivo. Cada niño bajo el cuidado de Paola recibe la atención individual que necesita para florecer.',
+                infantCare: 'Cuidado de Bebés',
+                infantCareDesc: 'Nuestro programa de cuidado infantil se centra en crear un ambiente acogedor y amoroso donde los pequeños puedan explorar y desarrollarse a su propio ritmo. Priorizamos el vínculo, el juego sensorial y la atención individual.',
+                toddlerProgram: 'Programa para Niños Pequeños',
+                toddlerProgramDesc: 'En nuestro programa para niños pequeños, los niños participan en el aprendizaje activo a través del juego. Fomentamos la curiosidad y la independencia mientras introducimos las primeras habilidades de alfabetización y lenguaje tanto en inglés como en español.',
+                bilingualEducation: 'Educación Bilingüe',
+                bilingualEducationDesc: 'Ofrecemos un currículo bilingüe que sumerge a los niños en inglés y español, fomentando el desarrollo del lenguaje y la apreciación cultural desde una edad temprana.',
+                meals: 'Comidas y Snacks Saludables',
+                mealsDesc: 'Ofrecemos desayuno, almuerzo y meriendas que se adaptan a las necesidades dietéticas, asegurando que su hijo reciba la nutrición que necesita para crecer y prosperar.',
+                contactUs: 'Contáctenos',
+            }
+        };
+
+        document.getElementById('language-selector').addEventListener('change', function () {
+            const selectedLang = this.value;
+            document.querySelectorAll('[data-translate]').forEach(function (element) {
+                const key = element.getAttribute('data-translate');
+                element.textContent = translations[selectedLang][key];
             });
-            const marker = new google.maps.Marker({
-                position: location,
-                map: map,
-            });
-        }
+        });
     </script>
 </body>
+
 </html>

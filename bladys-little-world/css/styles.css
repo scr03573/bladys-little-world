@@ -52,27 +52,14 @@ body {
     top: 0;
 }
 
-/* Header */
 header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background-color: rgba(44, 62, 80, 0.9);
+    background-color: rgba(255, 165, 0, 0.9); /* Light orange with transparency */
     -webkit-backdrop-filter: blur(10px); /* Added for Safari compatibility */
     backdrop-filter: blur(10px);
     transition: background-color var(--transition-speed);
-}
-
-header .navbar-nav .nav-link {
-    font-family: var(--font-secondary);
-    font-weight: 600;
-    color: var(--background-color);
-    transition: color var(--transition-speed);
-}
-
-header .navbar-nav .nav-link.active,
-header .navbar-nav .nav-link:hover {
-    color: var(--accent-color);
 }
 
 /* Hero Section */
@@ -128,9 +115,13 @@ header .navbar-nav .nav-link:hover {
     opacity: 0.9;
 }
 
-/* Sections */
-section {
-    padding: 4rem 0;
+.section-card {
+    border: 2px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9; /* Optional: Adds a light background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a soft shadow */
 }
 
 section h2 {
