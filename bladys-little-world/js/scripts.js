@@ -165,297 +165,297 @@ document.addEventListener('DOMContentLoaded', () => {
             scheduleTourButton: "Programar Visita",
             getDirections: "Obtener Direcciones",
             close: "Cerrar"
-        };
-
-        // Current Language
-        let currentLanguage = localStorage.getItem('preferredLanguage') || 'en';
-
-        // Function to update text content based on selected language
-        function updateLanguage(lang) {
-            // Update text content for elements with data-translate
-            document.querySelectorAll('[data-translate]').forEach(element => {
-                const key = element.getAttribute('data-translate');
-                if (translations[lang] && translations[lang][key]) {
-                    element.textContent = translations[lang][key];
-                }
-            });
-
-            // Update placeholders for elements with data-translate-placeholder
-            document.querySelectorAll('[data-translate-placeholder]').forEach(element => {
-                const key = element.getAttribute('data-translate-placeholder');
-                if (translations[lang] && translations[lang][key]) {
-                    element.setAttribute('placeholder', translations[lang][key]);
-                }
-            });
-
-            // Update select options with data-translate
-            document.querySelectorAll('select option[data-translate]').forEach(option => {
-                const key = option.getAttribute('data-translate');
-                if (translations[lang] && translations[lang][key]) {
-                    option.textContent = translations[lang][key];
-                }
-            });
         }
+    };
 
-        // Function to adjust main content padding based on navbar height
-        function adjustMainPadding() {
-            const navbar = document.querySelector('.navbar');
-            const mainContent = document.querySelector('main'); // Ensure your main content is wrapped in <main>
+    // Current Language
+    let currentLanguage = localStorage.getItem('preferredLanguage') || 'en';
 
-            if (navbar && mainContent) {
-                const navbarHeight = navbar.offsetHeight;
-                mainContent.style.paddingTop = `${navbarHeight}px`;
+    // Function to update text content based on selected language
+    function updateLanguage(lang) {
+        // Update text content for elements with data-translate
+        document.querySelectorAll('[data-translate]').forEach(element => {
+            const key = element.getAttribute('data-translate');
+            if (translations[lang] && translations[lang][key]) {
+                element.textContent = translations[lang][key];
             }
+        });
+
+        // Update placeholders for elements with data-translate-placeholder
+        document.querySelectorAll('[data-translate-placeholder]').forEach(element => {
+            const key = element.getAttribute('data-translate-placeholder');
+            if (translations[lang] && translations[lang][key]) {
+                element.setAttribute('placeholder', translations[lang][key]);
+            }
+        });
+
+        // Update select options with data-translate
+        document.querySelectorAll('select option[data-translate]').forEach(option => {
+            const key = option.getAttribute('data-translate');
+            if (translations[lang] && translations[lang][key]) {
+                option.textContent = translations[lang][key];
+            }
+        });
+    }
+
+    // Function to adjust main content padding based on navbar height
+    function adjustMainPadding() {
+        const navbar = document.querySelector('.navbar');
+        const mainContent = document.querySelector('main'); // Ensure your main content is wrapped in <main>
+
+        if (navbar && mainContent) {
+            const navbarHeight = navbar.offsetHeight;
+            mainContent.style.paddingTop = `${navbarHeight}px`;
         }
+    }
 
-        // Initialize language and adjust padding on page load
-        function init() {
+    // Initialize language and adjust padding on page load
+    function init() {
+        updateLanguage(currentLanguage);
+        adjustMainPadding();
+
+        // Update the language toggle button text if applicable
+        const languageToggleButton = document.getElementById('language-toggle');
+        const currentLanguageSpan = document.getElementById('current-language');
+        if(languageToggleButton && currentLanguageSpan){
+            currentLanguageSpan.textContent = currentLanguage.toUpperCase();
+        }
+    }
+
+    init();
+
+    // Adjust padding on window resize to handle dynamic navbar height changes
+    window.addEventListener('resize', adjustMainPadding);
+
+    /* ==========================================
+       4. Language Toggle Button
+    ========================================== */
+    const languageToggle = document.getElementById('language-toggle');
+    if(languageToggle){
+        languageToggle.addEventListener('click', () => {
+            // Toggle language
+            currentLanguage = currentLanguage === 'en' ? 'es' : 'en';
             updateLanguage(currentLanguage);
-            adjustMainPadding();
+            localStorage.setItem('preferredLanguage', currentLanguage);
 
-            // Update the language toggle button text if applicable
-            const languageToggleButton = document.getElementById('language-toggle');
+            // Update the language toggle button text
             const currentLanguageSpan = document.getElementById('current-language');
-            if(languageToggleButton && currentLanguageSpan){
+            if(currentLanguageSpan){
                 currentLanguageSpan.textContent = currentLanguage.toUpperCase();
             }
-        }
+        });
+    }
 
-        init();
+    /* ==========================================
+       5. Smooth Scrolling for Anchor Links
+    ========================================== */
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+    anchorLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                const navbar = document.querySelector('.navbar');
+                const navbarHeight = navbar ? navbar.offsetHeight : 0;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
 
-        // Adjust padding on window resize to handle dynamic navbar height changes
-        window.addEventListener('resize', adjustMainPadding);
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
 
-        /* ==========================================
-           4. Language Toggle Button
-        ========================================== */
-        const languageToggle = document.getElementById('language-toggle');
-        if(languageToggle){
-            languageToggle.addEventListener('click', () => {
-                // Toggle language
-                currentLanguage = currentLanguage === 'en' ? 'es' : 'en';
-                updateLanguage(currentLanguage);
-                localStorage.setItem('preferredLanguage', currentLanguage);
+    /* ==========================================
+       6. Fade-in Animations on Scroll using Intersection Observer
+    ========================================== */
+    const faders = document.querySelectorAll('.fade-in');
 
-                // Update the language toggle button text
-                const currentLanguageSpan = document.getElementById('current-language');
-                if(currentLanguageSpan){
-                    currentLanguageSpan.textContent = currentLanguage.toUpperCase();
-                }
-            });
-        }
+    const appearOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+    };
 
-        /* ==========================================
-           5. Smooth Scrolling for Anchor Links
-        ========================================== */
-        const anchorLinks = document.querySelectorAll('a[href^="#"]');
-        anchorLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const navbar = document.querySelector('.navbar');
-                    const navbarHeight = navbar ? navbar.offsetHeight : 0;
-                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('fade-in-visible');
+            appearOnScroll.unobserve(entry.target);
+        });
+    }, appearOptions);
 
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
+    faders.forEach(fader => {
+        appearOnScroll.observe(fader);
+    });
+
+    /* ==========================================
+       7. Initialize Bootstrap Components
+    ========================================== */
+    // Initialize Bootstrap Accordions and Modals
+    const accordions = document.querySelectorAll('.accordion-button');
+    accordions.forEach(accordion => {
+        accordion.addEventListener('click', () => {
+            // Additional JavaScript if needed
+        });
+    });
+
+    // Initialize Carousel for Portfolio Section
+    const portfolioCarousel = document.querySelector('#portfolioCarousel');
+    if (portfolioCarousel) {
+        new bootstrap.Carousel(portfolioCarousel, {
+            interval: 5000,
+            wrap: true
+        });
+    }
+
+    // Initialize tooltips (if any)
+    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+
+    /* ==========================================
+       8. Google Maps Initialization
+    ========================================== */
+    // The initMap function is defined globally in the HTML for Google Maps callback.
+    window.initMap = function() {
+        // Define the location coordinates
+        const location = { lat: 42.345573, lng: -71.098326 }; // Replace with your actual coordinates
+
+        // Create a new map instance
+        const map = new google.maps.Map(document.getElementById('map'), {
+            center: location,
+            zoom: 15
         });
 
-        /* ==========================================
-           6. Fade-in Animations on Scroll using Intersection Observer
-        ========================================== */
-        const faders = document.querySelectorAll('.fade-in');
-
-        const appearOptions = {
-            threshold: 0.1,
-            rootMargin: "0px 0px -50px 0px"
-        };
-
-        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) return;
-                entry.target.classList.add('fade-in-visible');
-                appearOnScroll.unobserve(entry.target);
-            });
-        }, appearOptions);
-
-        faders.forEach(fader => {
-            appearOnScroll.observe(fader);
+        // Add a marker to the map
+        const marker = new google.maps.Marker({
+            position: location,
+            map: map,
+            title: "Blady's Little World"
         });
+    };
 
-        /* ==========================================
-           7. Initialize Bootstrap Components
-        ========================================== */
-        // Initialize Bootstrap Accordions and Modals
-        const accordions = document.querySelectorAll('.accordion-button');
-        accordions.forEach(accordion => {
-            accordion.addEventListener('click', () => {
-                // Additional JavaScript if needed
-            });
+    /* ==========================================
+       9. Get Directions Button
+    ========================================== */
+    const getDirectionsBtn = document.getElementById('get-directions');
+    if(getDirectionsBtn){
+        getDirectionsBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const destination = encodeURIComponent("84 Warren Ave, Marlborough, MA 01752"); // Replace with your actual address
+            window.open(`https://www.google.com/maps/dir/?api=1&destination=${destination}`, '_blank');
         });
+    }
 
-        // Initialize Carousel for Portfolio Section
-        const portfolioCarousel = document.querySelector('#portfolioCarousel');
-        if (portfolioCarousel) {
-            new bootstrap.Carousel(portfolioCarousel, {
-                interval: 5000,
-                wrap: true
-            });
-        }
+    /* ==========================================
+       10. AJAX Form Submissions
+    ========================================== */
+    // Contact Form Submission
+    const contactForm = document.getElementById('contact-form');
+    if(contactForm){
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
 
-        // Initialize tooltips (if any)
-        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-        const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-          return new bootstrap.Tooltip(tooltipTriggerEl);
-        });
+            // Validate reCAPTCHA
+            const recaptchaResponse = grecaptcha.getResponse();
+            if (recaptchaResponse.length === 0) {
+                alert(currentLanguage === 'en' ? 'Please complete the reCAPTCHA.' : 'Por favor, complete el reCAPTCHA.');
+                return;
+            }
 
-        /* ==========================================
-           8. Google Maps Initialization
-        ========================================== */
-        // The initMap function is defined globally in the HTML for Google Maps callback.
-        window.initMap = function() {
-            // Define the location coordinates
-            const location = { lat: 42.345573, lng: -71.098326 }; // Replace with your actual coordinates
+            // Simple Frontend Validation
+            if (!contactForm.checkValidity()) {
+                contactForm.classList.add('was-validated');
+                return;
+            }
 
-            // Create a new map instance
-            const map = new google.maps.Map(document.getElementById('map'), {
-                center: location,
-                zoom: 15
-            });
+            const formData = {
+                name: contactForm.parentName.value.trim(),
+                email: contactForm.email.value.trim(),
+                phone: contactForm.phone.value.trim(),
+                additionalInfo: contactForm.additionalInfo.value.trim(),
+                recaptcha: recaptchaResponse
+            };
 
-            // Add a marker to the map
-            const marker = new google.maps.Marker({
-                position: location,
-                map: map,
-                title: "Blady's Little World"
-            });
-        };
+            try {
+                const response = await fetch('YOUR_CONTACT_BACKEND_ENDPOINT', { // Replace with your backend endpoint
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
 
-        /* ==========================================
-           9. Get Directions Button
-        ========================================== */
-        const getDirectionsBtn = document.getElementById('get-directions');
-        if(getDirectionsBtn){
-            getDirectionsBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                const destination = encodeURIComponent("84 Warren Ave, Marlborough, MA 01752"); // Replace with your actual address
-                window.open(`https://www.google.com/maps/dir/?api=1&destination=${destination}`, '_blank');
-            });
-        }
-
-        /* ==========================================
-           10. AJAX Form Submissions
-        ========================================== */
-        // Contact Form Submission
-        const contactForm = document.getElementById('contact-form');
-        if(contactForm){
-            contactForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-
-                // Validate reCAPTCHA
-                const recaptchaResponse = grecaptcha.getResponse();
-                if (recaptchaResponse.length === 0) {
-                    alert(currentLanguage === 'en' ? 'Please complete the reCAPTCHA.' : 'Por favor, complete el reCAPTCHA.');
-                    return;
-                }
-
-                // Simple Frontend Validation
-                if (!contactForm.checkValidity()) {
-                    contactForm.classList.add('was-validated');
-                    return;
-                }
-
-                const formData = {
-                    name: contactForm.parentName.value.trim(),
-                    email: contactForm.email.value.trim(),
-                    phone: contactForm.phone.value.trim(),
-                    additionalInfo: contactForm.additionalInfo.value.trim(),
-                    recaptcha: recaptchaResponse
-                };
-
-                try {
-                    const response = await fetch('YOUR_CONTACT_BACKEND_ENDPOINT', { // Replace with your backend endpoint
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(formData)
-                    });
-
-                    if (response.ok) {
-                        alert(currentLanguage === 'en' ? 'Thank you for your message!' : '¡Gracias por su mensaje!');
-                        contactForm.reset();
-                        grecaptcha.reset();
-                        contactForm.classList.remove('was-validated');
-                    } else {
-                        alert(currentLanguage === 'en' ? 'There was an error submitting your message. Please try again later.' : 'Hubo un error al enviar su mensaje. Por favor, inténtelo de nuevo más tarde.');
-                    }
-                } catch (error) {
-                    console.error('Error:', error);
+                if (response.ok) {
+                    alert(currentLanguage === 'en' ? 'Thank you for your message!' : '¡Gracias por su mensaje!');
+                    contactForm.reset();
+                    grecaptcha.reset();
+                    contactForm.classList.remove('was-validated');
+                } else {
                     alert(currentLanguage === 'en' ? 'There was an error submitting your message. Please try again later.' : 'Hubo un error al enviar su mensaje. Por favor, inténtelo de nuevo más tarde.');
                 }
-            });
-        }
+            } catch (error) {
+                console.error('Error:', error);
+                alert(currentLanguage === 'en' ? 'There was an error submitting your message. Please try again later.' : 'Hubo un error al enviar su mensaje. Por favor, inténtelo de nuevo más tarde.');
+            }
+        });
+    }
 
-        // Dietary Restrictions Form Submission
-        const dietaryForm = document.getElementById('dietary-form');
-        if(dietaryForm){
-            dietaryForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
+    // Dietary Restrictions Form Submission
+    const dietaryForm = document.getElementById('dietary-form');
+    if(dietaryForm){
+        dietaryForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
 
-                // Validate reCAPTCHA
-                const recaptchaResponse = grecaptcha.getResponse();
-                if (recaptchaResponse.length === 0) {
-                    alert(currentLanguage === 'en' ? 'Please complete the reCAPTCHA.' : 'Por favor, complete el reCAPTCHA.');
-                    return;
-                }
+            // Validate reCAPTCHA
+            const recaptchaResponse = grecaptcha.getResponse();
+            if (recaptchaResponse.length === 0) {
+                alert(currentLanguage === 'en' ? 'Please complete the reCAPTCHA.' : 'Por favor, complete el reCAPTCHA.');
+                return;
+            }
 
-                // Simple Frontend Validation
-                if (!dietaryForm.checkValidity()) {
-                    dietaryForm.classList.add('was-validated');
-                    return;
-                }
+            // Simple Frontend Validation
+            if (!dietaryForm.checkValidity()) {
+                dietaryForm.classList.add('was-validated');
+                return;
+            }
 
-                const formData = {
-                    childName: dietaryForm.childName.value.trim(),
-                    ageGroup: dietaryForm.ageGroup.value.trim(),
-                    dietaryRestrictions: dietaryForm.dietaryRestrictions.value.trim(),
-                    preferredMeals: dietaryForm.preferredMeals.value.trim(),
-                    recaptcha: recaptchaResponse
-                };
+            const formData = {
+                childName: dietaryForm.childName.value.trim(),
+                ageGroup: dietaryForm.ageGroup.value.trim(),
+                dietaryRestrictions: dietaryForm.dietaryRestrictions.value.trim(),
+                preferredMeals: dietaryForm.preferredMeals.value.trim(),
+                recaptcha: recaptchaResponse
+            };
 
-                try {
-                    const response = await fetch('YOUR_DIETARY_BACKEND_ENDPOINT', { // Replace with your backend endpoint
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(formData)
-                    });
+            try {
+                const response = await fetch('YOUR_DIETARY_BACKEND_ENDPOINT', { // Replace with your backend endpoint
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
 
-                    if (response.ok) {
-                        alert(currentLanguage === 'en' ? 'Your dietary needs have been submitted!' : '¡Sus necesidades dietéticas han sido enviadas!');
-                        dietaryForm.reset();
-                        grecaptcha.reset();
-                        dietaryForm.classList.remove('was-validated');
-                    } else {
-                        alert(currentLanguage === 'en' ? 'There was an error submitting your information. Please try again later.' : 'Hubo un error al enviar su información. Por favor, inténtelo de nuevo más tarde.');
-                    }
-                } catch (error) {
-                    console.error('Error:', error);
+                if (response.ok) {
+                    alert(currentLanguage === 'en' ? 'Your dietary needs have been submitted!' : '¡Sus necesidades dietéticas han sido enviadas!');
+                    dietaryForm.reset();
+                    grecaptcha.reset();
+                    dietaryForm.classList.remove('was-validated');
+                } else {
                     alert(currentLanguage === 'en' ? 'There was an error submitting your information. Please try again later.' : 'Hubo un error al enviar su información. Por favor, inténtelo de nuevo más tarde.');
                 }
-            });
-        }
+            } catch (error) {
+                console.error('Error:', error);
+                alert(currentLanguage === 'en' ? 'There was an error submitting your information. Please try again later.' : 'Hubo un error al enviar su información. Por favor, inténtelo de nuevo más tarde.');
+            }
+        });
+    }
 
-        /* ==========================================
-           11. Initialize WOW.js Animations
-        ========================================== */
-        new WOW().init();
-    });
+    /* ==========================================
+       11. Initialize WOW.js Animations
+    ========================================== */
+    new WOW().init();
 });
