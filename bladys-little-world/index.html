@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blady's Little World</title>
+    <meta name="description" content="Welcome to Blady's Little World, a warm and caring place for early childhood education and bilingual learning, run by a mother and daughter.">
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="Blady, Little World, Early Childhood Education, Bilingual Learning, Daycare, Family Owned">
+    <meta name="author" content="Blady's Little World">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Blady's Little World">
+    <meta property="og:description" content="A warm and caring place for early childhood education and bilingual learning, run by a mother and daughter.">
+    <meta property="og:image" content="https://scr03573.github.io/bladys-little-world/assets/images/logo.png">
+    <meta property="og:url" content="https://scr03573.github.io/bladys-little-world/">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Nunito:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossorigin="anonymous" />
+
+    <!-- Animate.css CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Google Analytics Tracking Script -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-E53BXH2GT2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-E53BXH2GT2', {
+            'linker': {
+                'domains': ['bladyslittleworld.com', 'scr03573.github.io']
+            }
+        });
+    </script>
+
+    <!-- Google reCAPTCHA -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+
+<body class="warm-theme">
+
+    <!-- Header with Navbar -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="assets/images/logo.png" alt="Blady's Little World Logo" height="60">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#home" data-translate="home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#programs" data-translate="programs">Programs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#schedule-tour" data-translate="schedule">Schedule</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact" data-translate="contact">Contact Information</a>
+                        </li>
+                        <li class="nav-item">
+                            <!-- Language Toggle Button -->
+                            <button id="language-toggle" class="language-toggle-btn btn btn-link nav-link" aria-label="Toggle Language">
+                                <i class="fas fa-language"></i> <span id="current-language">EN</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section id="home" class="hero d-flex align-items-center">
+            <div class="overlay"></div>
+            <div class="container text-center position-relative z-index-1">
+                <h1 data-translate="welcome">Blady’s Little World – A Family of Caring Hearts</h1>
+                <p data-translate="intro">Run by a mother and daughter, we create a safe, nurturing space where your child is treated like family, with a focus on bilingual learning.</p>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="#request-info" class="btn btn-primary btn-lg animate__animated animate__fadeInUp" data-translate="requestInfo"
+                        aria-label="Request Information">Request Information</a>
+                    <a href="#schedule-tour" class="btn btn-secondary btn-lg animate__animated animate__fadeInUp" data-translate="scheduleTour"
+                        aria-label="Schedule a Tour">Schedule a Tour</a>
+                </div>
+                <div class="mt-4">
+                    <h4 data-translate="hours">Operating Hours:</h4>
+                    <p>
+                        Mon-Fri: 7:00am - 5:00pm
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Founders' Experience Section -->
+        <section id="founders-experience" class="founders-experience py-5 wow animate__fadeIn">
+            <div class="container">
+                <h2 data-translate="aboutUs">About Us</h2>
+                <div class="row">
+                    <div class="col-md-6 mx-auto section-card">
+                        <h3 data-translate="founder1Title">Ms. Bladymar Porras - Lead Teacher</h3>
+                        <p data-translate="founder1Desc">Bladymar, the heart behind Blady’s Little World, has dedicated her life to creating a loving and engaging environment for children. Certified as a Child Development Associate (CDA), she blends interactive learning with bilingual education to ensure that each child feels valued and nurtured.</p>
+                    </div>
+
+                    <div class="col-md-6 mx-auto section-card">
+                        <h3 data-translate="founder2Title">Ms. Paola Pedraza - Assistant Teacher</h3>
+                        <p data-translate="founder2Desc">Paola’s passion for early education, combined with her warm personality, helps children feel comfortable and confident. With 7 years of experience, she specializes in emotional development and interactive play. Every child in Paola’s care is given the individual attention they need to flourish.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Programs Section -->
+        <section id="programs" class="programs py-5 bg-light wow animate__fadeIn">
+            <div class="container">
+                <h2 data-translate="programs">Our Programs</h2>
+                <div class="section-card">
+                    <h3 data-translate="infantCare">Infant Care</h3>
+                    <p data-translate="infantCareDesc">Our infant care program focuses on creating a cozy and loving atmosphere where your little ones can explore and develop at their own pace. We prioritize bonding, sensory play, and individual attention.</p>
+                </div>
+                <div class="section-card">
+                    <h3 data-translate="toddlerProgram">Toddler Program</h3>
+                    <p data-translate="toddlerProgramDesc">In our toddler program, children engage in active learning through play. We encourage curiosity and independence while introducing early literacy and language skills in both English and Spanish.</p>
+                </div>
+                <div class="section-card">
+                    <h3 data-translate="bilingualEducation">Bilingual Education</h3>
+                    <p data-translate="bilingualEducationDesc">We offer a bilingual curriculum that immerses children in both English and Spanish, fostering language development and cultural appreciation from an early age.</p>
+                </div>
+                <div class="section-card">
+                    <h3 data-translate="meals">Healthy Meals and Snacks</h3>
+                    <p data-translate="mealsDesc">We offer breakfast, lunch, and snacks that cater to dietary needs, ensuring your child receives the nutrition they need to grow and thrive.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dietary Needs Form Section -->
+        <section id="dietary-needs" class="py-5 bg-light wow animate__fadeIn">
+            <div class="container">
+                <h2 data-translate="provideDietaryNeeds">Provide Your Child's Dietary Needs</h2>
+                <form id="dietary-form" action="submit_dietary_needs.php" method="POST" novalidate>
+                    <div class="mb-3">
+                        <label for="childName" class="form-label" data-translate="childNameLabel">Child's Name:</label>
+                        <input type="text" id="childName" name="childName" class="form-control" required data-translate-placeholder="childNamePlaceholder" placeholder="Child's Name">
+                        <div class="invalid-feedback">
+                            Please enter your child's name.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="ageGroup" class="form-label" data-translate="ageGroupLabel">Age Group:</label>
+                        <select id="ageGroup" name="ageGroup" class="form-select" required data-translate-placeholder="ageGroupPlaceholder">
+                            <option value="" disabled selected>Select Age Group</option>
+                            <option value="infant" data-translate="ageGroupOption1">Infant (5 months - 12 months)</option>
+                            <option value="toddler" data-translate="ageGroupOption2">Toddler (1 - 3 years)</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please select an age group.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="dietaryRestrictions" class="form-label" data-translate="dietaryRestrictionsLabel">Dietary Restrictions:</label>
+                        <textarea id="dietaryRestrictions" name="dietaryRestrictions" rows="4" class="form-control" placeholder="Please list any dietary restrictions or allergies" required data-translate-placeholder="dietaryRestrictionsPlaceholder"></textarea>
+                        <div class="invalid-feedback">
+                            Please specify any dietary restrictions or allergies.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="preferredMeals" class="form-label" data-translate="preferredMealsLabel">Preferred Meals:</label>
+                        <textarea id="preferredMeals" name="preferredMeals" rows="4" class="form-control" placeholder="List any preferred meals or snacks" data-translate-placeholder="preferredMealsPlaceholder"></textarea>
+                    </div>
+                    <!-- Google reCAPTCHA -->
+                    <div class="mb-3">
+                        <div class="g-recaptcha" data-sitekey="6Le4r18qAAAAALS8zMWF7TuznooBUJGurtPR8yWp" data-action="submitDietaryNeeds"></div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" data-translate="submitDietaryNeeds">Submit Dietary Needs</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Request Information Form Section -->
+        <section id="request-info" class="py-5 wow animate__fadeIn">
+            <div class="container">
+                <h2 data-translate="requestInformation">Request Information</h2>
+                <form id="contact-form" action="submit_contact.php" method="POST" novalidate>
+                    <div class="mb-3">
+                        <label for="parentName" class="form-label" data-translate="parentNameLabel">Parent's Name:</label>
+                        <input type="text" id="parentName" name="parentName" class="form-control" required data-translate-placeholder="parentNamePlaceholder" placeholder="Parent's Name">
+                        <div class="invalid-feedback">
+                            Please enter your name.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label" data-translate="emailLabel">Email Address:</label>
+                        <input type="email" id="email" name="email" class="form-control" required data-translate-placeholder="emailPlaceholder" placeholder="Email Address">
+                        <div class="invalid-feedback">
+                            Please enter a valid email address.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label" data-translate="phoneLabel">Phone Number:</label>
+                        <input type="tel" id="phone" name="phone" class="form-control" data-translate-placeholder="phonePlaceholder" placeholder="Phone Number">
+                    </div>
+                    <div class="mb-3">
+                        <label for="additionalInfo" class="form-label" data-translate="additionalInfoLabel">Additional Information:</label>
+                        <textarea id="additionalInfo" name="additionalInfo" rows="4" class="form-control" placeholder="Feel free to add any additional questions or requests" data-translate-placeholder="additionalInfoPlaceholder"></textarea>
+                    </div>
+                    <!-- Google reCAPTCHA -->
+                    <div class="mb-3">
+                        <div class="g-recaptcha" data-sitekey="6Le4r18qAAAAALS8zMWF7TuznooBUJGurtPR8yWp" data-action="submitRequest"></div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" data-translate="submitRequest">Submit Request</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Schedule a Tour Form Section -->
+        <section id="schedule-tour" class="py-5 bg-light wow animate__fadeIn">
+            <div class="container">
+                <h2 data-translate="scheduleTour">Schedule a Tour</h2>
+                <form id="tour-form" action="schedule_tour.php" method="POST" novalidate>
+                    <div class="mb-3">
+                        <label for="tourParentName" class="form-label" data-translate="tourParentNameLabel">Parent's Name:</label>
+                        <input type="text" id="tourParentName" name="tourParentName" class="form-control" required data-translate-placeholder="tourParentNamePlaceholder" placeholder="Parent's Name">
+                        <div class="invalid-feedback">
+                            Please enter your name.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="tourEmail" class="form-label" data-translate="tourEmailLabel">Email Address:</label>
+                        <input type="email" id="tourEmail" name="tourEmail" class="form-control" required data-translate-placeholder="tourEmailPlaceholder" placeholder="Email Address">
+                        <div class="invalid-feedback">
+                            Please enter a valid email address.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="preferredTourDate" class="form-label" data-translate="preferredTourDateLabel">Preferred Tour Date:</label>
+                        <input type="date" id="preferredTourDate" name="preferredTourDate" class="form-control" required data-translate-placeholder="preferredTourDatePlaceholder" placeholder="Preferred Tour Date">
+                        <div class="invalid-feedback">
+                            Please select a preferred tour date.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="preferredTourTime" class="form-label" data-translate="preferredTourTimeLabel">Preferred Tour Time:</label>
+                        <input type="time" id="preferredTourTime" name="preferredTourTime" class="form-control" required data-translate-placeholder="preferredTourTimePlaceholder" placeholder="Preferred Tour Time">
+                        <div class="invalid-feedback">
+                            Please select a preferred tour time.
+                        </div>
+                    </div>
+                    <!-- Google reCAPTCHA -->
+                    <div class="mb-3">
+                        <div class="g-recaptcha" data-sitekey="6Le4r18qAAAAALS8zMWF7TuznooBUJGurtPR8yWp" data-action="scheduleTour"></div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" data-translate="scheduleTourButton">Schedule Tour</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Contact Information Section -->
+        <section id="contact" class="contact py-5 bg-light wow animate__fadeIn">
+            <div class="container">
+                <h2 data-translate="contactUs">Contact Us</h2>
+                <div class="section-card">
+                    <p><strong>Address:</strong> 84 Warren Ave, Marlborough, MA 01752</p>
+                    <p><strong>Phone:</strong> +1 (774) 623-0803</p>
+                    <p><strong>Email:</strong> <a href="mailto:bladyslittleworld@gmail.com">bladyslittleworld@gmail.com</a></p>
+                    <!-- Google Map -->
+                    <div id="map" style="height: 400px; width: 100%;"></div>
+                    <!-- Get Directions Button -->
+                    <button id="get-directions" class="btn btn-secondary mt-3" data-translate="getDirections">Get Directions</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-4">
+        <div class="container text-center">
+            <p>&copy; 2024 Blady's Little World. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/yourpage" target="_blank" rel="noopener" aria-label="Facebook">
+                    <i class="fab fa-facebook-f fa-lg"></i>
+                </a>
+                <a href="https://www.twitter.com/yourprofile" target="_blank" rel="noopener" aria-label="Twitter">
+                    <i class="fab fa-twitter fa-lg"></i>
+                </a>
+                <a href="https://www.instagram.com/yourprofile" target="_blank" rel="noopener" aria-label="Instagram">
+                    <i class="fab fa-instagram fa-lg"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin fa-lg"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="btn btn-primary animate__animated animate__bounce" aria-label="Back to Top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- WOW.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+
+    <!-- Initialize WOW.js -->
+    <script>
+        new WOW().init();
+    </script>
+
+    <!-- Custom Scripts -->
+    <script src="js/scripts.js" defer></script>
+    <script src="js/translate.js" defer></script>
+</body>
+
+</html>
