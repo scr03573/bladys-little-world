@@ -30,7 +30,7 @@ h3 {
 
 /* Hero Section */
 .hero {
-    background: url('assets/images/hero-family.jpg') no-repeat center center;
+    background: url('../assets/hero-family.jpg') no-repeat center center;
     background-size: cover;
     color: var(--white);
     padding: 100px 0;

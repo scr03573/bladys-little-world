@@ -1,58 +1,31 @@
 document.addEventListener('DOMContentLoaded', () => {
-    /* ==========================================
-       1. Back to Top Button
-    ========================================== */
-    const backToTopButton = document.getElementById('back-to-top');
-
-    // Show or Hide Back to Top Button based on scroll position
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            backToTopButton.classList.add('show');
-        } else {
-            backToTopButton.classList.remove('show');
-        }
-
-        /* ==========================================
-           2. Navbar Scroll Behavior
-        ========================================== */
-        const navbar = document.querySelector('.navbar');
-        const mainContent = document.querySelector('main'); // Ensure your main content is wrapped in <main>
-
-        if (navbar) {
-            if (window.scrollY > 50) { // Adjust the threshold as needed
-                navbar.classList.add('scrolled');
-                if (mainContent) {
-                    mainContent.classList.add('navbar-scrolled');
-                }
-            } else {
-                navbar.classList.remove('scrolled');
-                if (mainContent) {
-                    mainContent.classList.remove('navbar-scrolled');
-                }
-            }
-        }
-    });
-
-    // Smooth Scroll to Top
-    if (backToTopButton) {
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    }
-
-    /* ==========================================
-       3. Language Toggle and Translation Functionality
-    ========================================== */
     // Translation Data
     const translations = {
         en: {
-            // ... (Your existing translation keys and values)
+            home: "Home",
+            programs: "Programs",
+            schedule: "Schedule",
+            contact: "Contact Information",
+            welcome: "Blady’s Little World – A Family of Caring Hearts",
+            intro: "Run by a mother and daughter, we create a safe, nurturing space where your child is treated like family, with a focus on bilingual learning.",
+            requestInfo: "Request Information",
+            scheduleTour: "Schedule a Tour",
+            hours: "Operating Hours:",
+            aboutUs: "About Us",
+            // Other translation keys...
         },
         es: {
-            // ... (Your existing translation keys and values)
+            home: "Inicio",
+            programs: "Programas",
+            schedule: "Horario",
+            contact: "Información de Contacto",
+            welcome: "Blady’s Little World – Una Familia de Corazones Cariñosos",
+            intro: "Dirigido por una madre y una hija, creamos un espacio seguro y acogedor donde su hijo es tratado como familia, con un enfoque en el aprendizaje bilingüe.",
+            requestInfo: "Solicitar Información",
+            scheduleTour: "Programar una Visita",
+            hours: "Horario de Atención:",
+            aboutUs: "Sobre Nosotros",
+            // Other translation keys...
         }
     };
 
@@ -63,21 +36,21 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateLanguage(lang) {
         document.querySelectorAll('[data-translate]').forEach(element => {
             const key = element.getAttribute('data-translate');
-            if (translations[lang] && translations[lang][key]) {
+            if (translations[lang][key]) {
                 element.textContent = translations[lang][key];
             }
         });
 
         document.querySelectorAll('[data-translate-placeholder]').forEach(element => {
             const key = element.getAttribute('data-translate-placeholder');
-            if (translations[lang] && translations[lang][key]) {
+            if (translations[lang][key]) {
                 element.setAttribute('placeholder', translations[lang][key]);
             }
         });
 
         document.querySelectorAll('select option[data-translate]').forEach(option => {
             const key = option.getAttribute('data-translate');
-            if (translations[lang] && translations[lang][key]) {
+            if (translations[lang][key]) {
                 option.textContent = translations[lang][key];
             }
         });
@@ -86,9 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize language on page load
     function initLanguage() {
         updateLanguage(currentLanguage);
-        const languageToggleButton = document.getElementById('language-toggle');
         const currentLanguageSpan = document.getElementById('current-language');
-        if (languageToggleButton && currentLanguageSpan) {
+        if (currentLanguageSpan) {
             currentLanguageSpan.textContent = currentLanguage.toUpperCase();
         }
     }
@@ -104,20 +76,11 @@ document.addEventListener('DOMContentLoaded', () => {
             currentLanguage = currentLanguage === 'en' ? 'es' : 'en';
             updateLanguage(currentLanguage);
             localStorage.setItem('preferredLanguage', currentLanguage);
+
             const currentLanguageSpan = document.getElementById('current-language');
             if (currentLanguageSpan) {
                 currentLanguageSpan.textContent = currentLanguage.toUpperCase();
             }
         });
     }
-
-    /* ==========================================
-       5. AJAX Form Submissions
-    ========================================== */
-    // Reuse AJAX submission code from previous sections for forms
-
-    /* ==========================================
-       11. Initialize WOW.js Animations
-    ========================================== */
-    new WOW().init();
 });
