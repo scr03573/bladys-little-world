@@ -7,6 +7,11 @@
     <title>Blady's Little World</title>
     <meta name="description" content="Welcome to Blady's Little World, a warm and caring place for early childhood education and bilingual learning, run by a mother and daughter.">
 
+    <!-- Favicon -->
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <!-- Other metadata and links -->
+</head>
+
     <!-- SEO Meta Tags -->
     <meta name="keywords" content="Blady, Little World, Early Childhood Education, Bilingual Learning, Daycare, Family Owned">
     <meta name="author" content="Blady's Little World">
@@ -40,31 +45,21 @@
     <link rel="stylesheet" href="css/styles.css">
 
     <!-- Google Analytics Tracking Script -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_GOOGLE_ANALYTICS_ID"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-E53BXH2GT2"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
+        function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'YOUR_GOOGLE_ANALYTICS_ID');
+
+        gtag('config', 'G-E53BXH2GT2', {
+            'linker': {
+                'domains': ['bladyslittleworld.com', 'scr03573.github.io']
+            }
+        });
     </script>
 
-    <!-- Geolocation Script -->
-    <script>
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function (position) {
-                console.log("Latitude: " + position.coords.latitude + " Longitude: " + position.coords.longitude);
-                // Send location to your backend or analytics tool
-                fetch('/send_location.php', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        latitude: position.coords.latitude,
-                        longitude: position.coords.longitude
-                    })
-                });
-            });
-        }
-    </script>
+    <!-- Google reCAPTCHA -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body class="warm-theme">
@@ -96,7 +91,7 @@
                         </li>
                         <li class="nav-item">
                             <!-- Language Toggle Button -->
-                            <button id="language-toggle" class="language-toggle-btn" aria-label="Toggle Language">
+                            <button id="language-toggle" class="language-toggle-btn btn btn-link nav-link" aria-label="Toggle Language">
                                 <i class="fas fa-language"></i> <span id="current-language">EN</span>
                             </button>
                         </li>
@@ -206,7 +201,7 @@
                     </div>
                     <!-- Google reCAPTCHA -->
                     <div class="mb-3">
-                        <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
+                        <div class="g-recaptcha" data-sitekey="6Le4r18qAAAAALS8zMWF7TuznooBUJGurtPR8yWp" data-action="submitDietaryNeeds"></div>
                     </div>
                     <button type="submit" class="btn btn-primary" data-translate="submitDietaryNeeds">Submit Dietary Needs</button>
                 </form>
@@ -217,7 +212,7 @@
         <section id="request-info" class="py-5 wow animate__fadeIn">
             <div class="container">
                 <h2 data-translate="requestInformation">Request Information</h2>
-                <form id="contact-form" action="submit_request_info.php" method="POST" novalidate>
+                <form id="contact-form" action="submit_contact.php" method="POST" novalidate>
                     <div class="mb-3">
                         <label for="parentName" class="form-label" data-translate="parentNameLabel">Parent's Name:</label>
                         <input type="text" id="parentName" name="parentName" class="form-control" required data-translate-placeholder="parentNamePlaceholder" placeholder="Parent's Name">
@@ -242,7 +237,7 @@
                     </div>
                     <!-- Google reCAPTCHA -->
                     <div class="mb-3">
-                        <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
+                        <div class="g-recaptcha" data-sitekey="6Le4r18qAAAAALS8zMWF7TuznooBUJGurtPR8yWp" data-action="submitRequest"></div>
                     </div>
                     <button type="submit" class="btn btn-primary" data-translate="submitRequest">Submit Request</button>
                 </form>
@@ -253,7 +248,7 @@
         <section id="schedule-tour" class="py-5 bg-light wow animate__fadeIn">
             <div class="container">
                 <h2 data-translate="scheduleTour">Schedule a Tour</h2>
-                <form action="schedule_tour.php" method="POST" novalidate>
+                <form id="tour-form" action="schedule_tour.php" method="POST" novalidate>
                     <div class="mb-3">
                         <label for="tourParentName" class="form-label" data-translate="tourParentNameLabel">Parent's Name:</label>
                         <input type="text" id="tourParentName" name="tourParentName" class="form-control" required data-translate-placeholder="tourParentNamePlaceholder" placeholder="Parent's Name">
@@ -282,6 +277,10 @@
                             Please select a preferred tour time.
                         </div>
                     </div>
+                    <!-- Google reCAPTCHA -->
+                    <div class="mb-3">
+                        <div class="g-recaptcha" data-sitekey="6Le4r18qAAAAALS8zMWF7TuznooBUJGurtPR8yWp" data-action="scheduleTour"></div>
+                    </div>
                     <button type="submit" class="btn btn-primary" data-translate="scheduleTourButton">Schedule Tour</button>
                 </form>
             </div>
@@ -296,7 +295,7 @@
                     <p><strong>Phone:</strong> +1 (774) 623-0803</p>
                     <p><strong>Email:</strong> <a href="mailto:bladyslittleworld@gmail.com">bladyslittleworld@gmail.com</a></p>
                     <!-- Google Map -->
-                    <div id="map"></div>
+                    <div id="map" style="height: 400px; width: 100%;"></div>
                     <!-- Get Directions Button -->
                     <button id="get-directions" class="btn btn-secondary mt-3" data-translate="getDirections">Get Directions</button>
                 </div>
@@ -333,9 +332,6 @@
     <!-- Bootstrap JS and dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Google Maps API -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap"></script>
-
     <!-- WOW.js CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
 
@@ -346,6 +342,7 @@
 
     <!-- Custom Scripts -->
     <script src="js/scripts.js" defer></script>
+    <script src="js/translate.js" defer></script>
 </body>
 
 </html>

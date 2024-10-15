@@ -1,9 +1,11 @@
 <?php
+header('Content-Type: application/json');
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Collect POST data
-    $name = $_POST['name'] ?? null;
+    $name = $_POST['parentName'] ?? null; // Updated variable names
     $email = $_POST['email'] ?? null;
-    $message = $_POST['message'] ?? null;
+    $message = $_POST['additionalInfo'] ?? null;
 
     // Validation (ensure all required fields are filled)
     if ($name && $email && $message) {
@@ -22,15 +24,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         */
 
         // Optionally, send an email to the site owner/admin
-        /*
-        mail("admin@example.com", "New Contact Form Submission", "Message from $name ($email): $message", "From: no-reply@example.com");
-        */
+        mail("admin@camroy135@gmail.com", "New Contact Form Submission", "Message from $name ($email): $message", "From: no-reply@bladyslittleworld.com");
 
-        echo "Thank you for your message.";
+        echo json_encode(['status' => 'success', 'message' => 'Thank you for your message.']);
     } else {
-        echo "Please fill all required fields.";
+        echo json_encode(['status' => 'error', 'message' => 'Please fill all required fields.']);
     }
 } else {
-    echo "Invalid request method.";
+    echo json_encode(['status' => 'error', 'message' => 'Invalid request method.']);
 }
 ?>

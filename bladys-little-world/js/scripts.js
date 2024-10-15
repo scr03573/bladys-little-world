@@ -44,210 +44,39 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ==========================================
-       3. Language Toggle and Translation Functionality
+       3. Geolocation Tracking
     ========================================== */
-    // Translation Data
-    const translations = {
-        en: {
-            home: "Home",
-            programs: "Programs",
-            schedule: "Schedule",
-            contact: "Contact Information",
-            welcome: "Blady’s Little World – A Family of Caring Hearts",
-            intro: "Run by a mother and daughter, we create a safe, nurturing space where your child is treated like family, with a focus on bilingual learning.",
-            requestInfo: "Request Information",
-            scheduleTour: "Schedule a Tour",
-            hours: "Operating Hours:",
-            aboutUs: "About Us",
-            founder1Title: "Ms. Bladymar Porras - Lead Teacher",
-            founder1Desc: "Bladymar, the heart behind Blady’s Little World, has dedicated her life to creating a loving and engaging environment for children. Certified as a Child Development Associate (CDA), she blends interactive learning with bilingual education to ensure that each child feels valued and nurtured.",
-            founder2Title: "Ms. Paola Pedraza - Assistant Teacher",
-            founder2Desc: "Paola’s passion for early education, combined with her warm personality, helps children feel comfortable and confident. With 7 years of experience, she specializes in emotional development and interactive play. Every child in Paola’s care is given the individual attention they need to flourish.",
-            infantCare: "Infant Care",
-            infantCareDesc: "Our infant care program focuses on creating a cozy and loving atmosphere where your little ones can explore and develop at their own pace. We prioritize bonding, sensory play, and individual attention.",
-            toddlerProgram: "Toddler Program",
-            toddlerProgramDesc: "In our toddler program, children engage in active learning through play. We encourage curiosity and independence while introducing early literacy and language skills in both English and Spanish.",
-            bilingualEducation: "Bilingual Education",
-            bilingualEducationDesc: "We offer a bilingual curriculum that immerses children in both English and Spanish, fostering language development and cultural appreciation from an early age.",
-            meals: "Healthy Meals and Snacks",
-            mealsDesc: "We offer breakfast, lunch, and snacks that cater to dietary needs, ensuring your child receives the nutrition they need to grow and thrive.",
-            contactUs: "Contact Us",
-            provideDietaryNeeds: "Provide Your Child's Dietary Needs",
-            childNameLabel: "Child's Name:",
-            childNamePlaceholder: "Child's Name",
-            ageGroupLabel: "Age Group:",
-            ageGroupPlaceholder: "Select Age Group",
-            ageGroupOption1: "Infant (5 months - 12 months)",
-            ageGroupOption2: "Toddler (1 - 3 years)",
-            dietaryRestrictionsLabel: "Dietary Restrictions:",
-            dietaryRestrictionsPlaceholder: "Please list any dietary restrictions or allergies",
-            preferredMealsLabel: "Preferred Meals:",
-            preferredMealsPlaceholder: "List any preferred meals or snacks",
-            submitDietaryNeeds: "Submit Dietary Needs",
-            requestInformation: "Request Information",
-            parentNameLabel: "Parent's Name:",
-            parentNamePlaceholder: "Parent's Name",
-            emailLabel: "Email Address:",
-            emailPlaceholder: "Email Address",
-            phoneLabel: "Phone Number:",
-            phonePlaceholder: "Phone Number",
-            additionalInfoLabel: "Additional Information:",
-            additionalInfoPlaceholder: "Feel free to add any additional questions or requests",
-            submitRequest: "Submit Request",
-            scheduleTour: "Schedule a Tour",
-            tourParentNameLabel: "Parent's Name:",
-            tourParentNamePlaceholder: "Parent's Name",
-            tourEmailLabel: "Email Address:",
-            tourEmailPlaceholder: "Email Address",
-            preferredTourDateLabel: "Preferred Tour Date:",
-            preferredTourDatePlaceholder: "Preferred Tour Date",
-            preferredTourTimeLabel: "Preferred Tour Time:",
-            preferredTourTimePlaceholder: "Preferred Tour Time",
-            scheduleTourButton: "Schedule Tour",
-            getDirections: "Get Directions",
-            close: "Close"
-        },
-        es: {
-            home: "Inicio",
-            programs: "Programas",
-            schedule: "Horario",
-            contact: "Información de Contacto",
-            welcome: "Blady’s Little World – Una Familia de Corazones Cariñosos",
-            intro: "Dirigido por una madre y una hija, creamos un espacio seguro y acogedor donde su hijo es tratado como familia, con un enfoque en el aprendizaje bilingüe.",
-            requestInfo: "Solicitar Información",
-            scheduleTour: "Programar una Visita",
-            hours: "Horario de Atención:",
-            aboutUs: "Sobre Nosotros",
-            founder1Title: "Sra. Bladymar Porras - Maestra Principal",
-            founder1Desc: "Bladymar, el corazón detrás de Blady’s Little World, ha dedicado su vida a crear un ambiente amoroso y atractivo para los niños. Certificada como Asociada de Desarrollo Infantil (CDA), combina el aprendizaje interactivo con la educación bilingüe para garantizar que cada niño se sienta valorado y cuidado.",
-            founder2Title: "Sra. Paola Pedraza - Asistente de Maestra",
-            founder2Desc: "La pasión de Paola por la educación temprana, combinada con su personalidad cálida, ayuda a los niños a sentirse cómodos y seguros. Con 7 años de experiencia, se especializa en desarrollo emocional y juego interactivo. Cada niño bajo el cuidado de Paola recibe la atención individual que necesita para florecer.",
-            infantCare: "Cuidado de Bebés",
-            infantCareDesc: "Nuestro programa de cuidado infantil se centra en crear un ambiente acogedor y amoroso donde los pequeños puedan explorar y desarrollarse a su propio ritmo. Priorizamos el vínculo, el juego sensorial y la atención individual.",
-            toddlerProgram: "Programa para Niños Pequeños",
-            toddlerProgramDesc: "En nuestro programa para niños pequeños, los niños participan en el aprendizaje activo a través del juego. Fomentamos la curiosidad y la independencia mientras introducimos las primeras habilidades de alfabetización y lenguaje tanto en inglés como en español.",
-            bilingualEducation: "Educación Bilingüe",
-            bilingualEducationDesc: "Ofrecemos un currículo bilingüe que sumerge a los niños en inglés y español, fomentando el desarrollo del lenguaje y la apreciación cultural desde una edad temprana.",
-            meals: "Comidas y Snacks Saludables",
-            mealsDesc: "Ofrecemos desayuno, almuerzo y meriendas que se adaptan a las necesidades dietéticas, asegurando que su hijo reciba la nutrición que necesita para crecer y prosperar.",
-            contactUs: "Contáctenos",
-            provideDietaryNeeds: "Proporcione las Necesidades Dietéticas de su Hijo",
-            childNameLabel: "Nombre del Niño:",
-            childNamePlaceholder: "Nombre del Niño",
-            ageGroupLabel: "Grupo de Edad:",
-            ageGroupPlaceholder: "Seleccione Grupo de Edad",
-            ageGroupOption1: "Bebé (5 meses - 12 meses)",
-            ageGroupOption2: "Niño Pequeño (1 - 3 años)",
-            dietaryRestrictionsLabel: "Restricciones Dietéticas:",
-            dietaryRestrictionsPlaceholder: "Por favor, liste cualquier restricción dietética o alergias",
-            preferredMealsLabel: "Comidas Preferidas:",
-            preferredMealsPlaceholder: "Liste cualquier comida o snack preferido",
-            submitDietaryNeeds: "Enviar Necesidades Dietéticas",
-            requestInformation: "Solicitar Información",
-            parentNameLabel: "Nombre del Padre:",
-            parentNamePlaceholder: "Nombre del Padre",
-            emailLabel: "Correo Electrónico:",
-            emailPlaceholder: "Correo Electrónico",
-            phoneLabel: "Número de Teléfono:",
-            phonePlaceholder: "Número de Teléfono",
-            additionalInfoLabel: "Información Adicional:",
-            additionalInfoPlaceholder: "Siéntase libre de agregar cualquier pregunta o solicitud adicional",
-            submitRequest: "Enviar Solicitud",
-            scheduleTour: "Programar una Visita",
-            tourParentNameLabel: "Nombre del Padre:",
-            tourParentNamePlaceholder: "Nombre del Padre",
-            tourEmailLabel: "Correo Electrónico:",
-            tourEmailPlaceholder: "Correo Electrónico",
-            preferredTourDateLabel: "Fecha Preferida de la Visita:",
-            preferredTourDatePlaceholder: "Fecha Preferida de la Visita",
-            preferredTourTimeLabel: "Hora Preferida de la Visita:",
-            preferredTourTimePlaceholder: "Hora Preferida de la Visita",
-            scheduleTourButton: "Programar Visita",
-            getDirections: "Obtener Direcciones",
-            close: "Cerrar"
-        }
-    };
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            console.log("Latitude: " + latitude + " Longitude: " + longitude);
 
-    // Current Language
-    let currentLanguage = localStorage.getItem('preferredLanguage') || 'en';
-
-    // Function to update text content based on selected language
-    function updateLanguage(lang) {
-        // Update text content for elements with data-translate
-        document.querySelectorAll('[data-translate]').forEach(element => {
-            const key = element.getAttribute('data-translate');
-            if (translations[lang] && translations[lang][key]) {
-                element.textContent = translations[lang][key];
-            }
+            // Send location to your backend for tracking
+            fetch('/send_location.php', { // Ensure this endpoint exists on your server
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    latitude: latitude,
+                    longitude: longitude
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Location data sent successfully:', data);
+            })
+            .catch(error => {
+                console.error('Error sending location data:', error);
+            });
+        }, function (error) {
+            console.error("Error obtaining location:", error);
         });
-
-        // Update placeholders for elements with data-translate-placeholder
-        document.querySelectorAll('[data-translate-placeholder]').forEach(element => {
-            const key = element.getAttribute('data-translate-placeholder');
-            if (translations[lang] && translations[lang][key]) {
-                element.setAttribute('placeholder', translations[lang][key]);
-            }
-        });
-
-        // Update select options with data-translate
-        document.querySelectorAll('select option[data-translate]').forEach(option => {
-            const key = option.getAttribute('data-translate');
-            if (translations[lang] && translations[lang][key]) {
-                option.textContent = translations[lang][key];
-            }
-        });
-    }
-
-    // Function to adjust main content padding based on navbar height
-    function adjustMainPadding() {
-        const navbar = document.querySelector('.navbar');
-        const mainContent = document.querySelector('main'); // Ensure your main content is wrapped in <main>
-
-        if (navbar && mainContent) {
-            const navbarHeight = navbar.offsetHeight;
-            mainContent.style.paddingTop = `${navbarHeight}px`;
-        }
-    }
-
-    // Initialize language and adjust padding on page load
-    function init() {
-        updateLanguage(currentLanguage);
-        adjustMainPadding();
-
-        // Update the language toggle button text if applicable
-        const languageToggleButton = document.getElementById('language-toggle');
-        const currentLanguageSpan = document.getElementById('current-language');
-        if(languageToggleButton && currentLanguageSpan){
-            currentLanguageSpan.textContent = currentLanguage.toUpperCase();
-        }
-    }
-
-    init();
-
-    // Adjust padding on window resize to handle dynamic navbar height changes
-    window.addEventListener('resize', adjustMainPadding);
-
-    /* ==========================================
-       4. Language Toggle Button
-    ========================================== */
-    const languageToggle = document.getElementById('language-toggle');
-    if(languageToggle){
-        languageToggle.addEventListener('click', () => {
-            // Toggle language
-            currentLanguage = currentLanguage === 'en' ? 'es' : 'en';
-            updateLanguage(currentLanguage);
-            localStorage.setItem('preferredLanguage', currentLanguage);
-
-            // Update the language toggle button text
-            const currentLanguageSpan = document.getElementById('current-language');
-            if(currentLanguageSpan){
-                currentLanguageSpan.textContent = currentLanguage.toUpperCase();
-            }
-        });
+    } else {
+        console.log("Geolocation is not supported by this browser.");
     }
 
     /* ==========================================
-       5. Smooth Scrolling for Anchor Links
+       4. Smooth Scrolling for Anchor Links
     ========================================== */
     const anchorLinks = document.querySelectorAll('a[href^="#"]');
     anchorLinks.forEach(link => {
@@ -268,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* ==========================================
-       6. Fade-in Animations on Scroll using Intersection Observer
+       5. Fade-in Animations on Scroll using Intersection Observer
     ========================================== */
     const faders = document.querySelectorAll('.fade-in');
 
@@ -290,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* ==========================================
-       7. Initialize Bootstrap Components
+       6. Initialize Bootstrap Components
     ========================================== */
     // Initialize Bootstrap Accordions and Modals
     const accordions = document.querySelectorAll('.accordion-button');
@@ -316,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* ==========================================
-       8. Google Maps Initialization
+       7. Google Maps Initialization
     ========================================== */
     // The initMap function is defined globally in the HTML for Google Maps callback.
     window.initMap = function() {
@@ -338,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     /* ==========================================
-       9. Get Directions Button
+       8. Get Directions Button
     ========================================== */
     const getDirectionsBtn = document.getElementById('get-directions');
     if(getDirectionsBtn){
@@ -350,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ==========================================
-       10. AJAX Form Submissions
+       9. AJAX Form Submissions
     ========================================== */
     // Contact Form Submission
     const contactForm = document.getElementById('contact-form');
@@ -372,7 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const formData = {
-                name: contactForm.parentName.value.trim(),
+                parentName: contactForm.parentName.value.trim(),
                 email: contactForm.email.value.trim(),
                 phone: contactForm.phone.value.trim(),
                 additionalInfo: contactForm.additionalInfo.value.trim(),
@@ -380,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             try {
-                const response = await fetch('YOUR_CONTACT_BACKEND_ENDPOINT', { // Replace with your backend endpoint
+                const response = await fetch('submit_contact.php', { // Replace with your backend endpoint if different
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -388,13 +217,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     body: JSON.stringify(formData)
                 });
 
-                if (response.ok) {
+                const result = await response.json();
+
+                if (response.ok && result.status === 'success') {
                     alert(currentLanguage === 'en' ? 'Thank you for your message!' : '¡Gracias por su mensaje!');
                     contactForm.reset();
                     grecaptcha.reset();
                     contactForm.classList.remove('was-validated');
                 } else {
-                    alert(currentLanguage === 'en' ? 'There was an error submitting your message. Please try again later.' : 'Hubo un error al enviar su mensaje. Por favor, inténtelo de nuevo más tarde.');
+                    alert(currentLanguage === 'en' ? result.message || 'There was an error submitting your message. Please try again later.' : result.message || 'Hubo un error al enviar su mensaje. Por favor, inténtelo de nuevo más tarde.');
                 }
             } catch (error) {
                 console.error('Error:', error);
@@ -431,7 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             try {
-                const response = await fetch('YOUR_DIETARY_BACKEND_ENDPOINT', { // Replace with your backend endpoint
+                const response = await fetch('submit_dietary_needs.php', { // Replace with your backend endpoint if different
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -439,13 +270,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     body: JSON.stringify(formData)
                 });
 
-                if (response.ok) {
+                const result = await response.json();
+
+                if (response.ok && result.status === 'success') {
                     alert(currentLanguage === 'en' ? 'Your dietary needs have been submitted!' : '¡Sus necesidades dietéticas han sido enviadas!');
                     dietaryForm.reset();
                     grecaptcha.reset();
                     dietaryForm.classList.remove('was-validated');
                 } else {
-                    alert(currentLanguage === 'en' ? 'There was an error submitting your information. Please try again later.' : 'Hubo un error al enviar su información. Por favor, inténtelo de nuevo más tarde.');
+                    alert(currentLanguage === 'en' ? result.message || 'There was an error submitting your information. Please try again later.' : result.message || 'Hubo un error al enviar su información. Por favor, inténtelo de nuevo más tarde.');
                 }
             } catch (error) {
                 console.error('Error:', error);
@@ -454,8 +287,52 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Tour Scheduling Form Submission
+    const tourForm = document.getElementById('tour-form');
+    if(tourForm){
+        tourForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // Simple Frontend Validation
+            if (!tourForm.checkValidity()) {
+                tourForm.classList.add('was-validated');
+                return;
+            }
+
+            const formData = {
+                tourParentName: tourForm.tourParentName.value.trim(),
+                tourEmail: tourForm.tourEmail.value.trim(),
+                preferredTourDate: tourForm.preferredTourDate.value.trim(),
+                preferredTourTime: tourForm.preferredTourTime.value.trim()
+            };
+
+            try {
+                const response = await fetch('schedule_tour.php', { // Replace with your backend endpoint if different
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+
+                if (response.ok && result.status === 'success') {
+                    alert(currentLanguage === 'en' ? 'Tour scheduled successfully!' : '¡Tour programado con éxito!');
+                    tourForm.reset();
+                    tourForm.classList.remove('was-validated');
+                } else {
+                    alert(currentLanguage === 'en' ? result.message || 'There was an error scheduling your tour. Please try again later.' : result.message || 'Hubo un error al programar su tour. Por favor, inténtelo de nuevo más tarde.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert(currentLanguage === 'en' ? 'There was an error scheduling your tour. Please try again later.' : 'Hubo un error al programar su tour. Por favor, inténtelo de nuevo más tarde.');
+            }
+        });
+    }
+
     /* ==========================================
-       11. Initialize WOW.js Animations
+       10. Initialize WOW.js Animations
     ========================================== */
     new WOW().init();
 });
